@@ -3,7 +3,9 @@
 import event from '../../utils/event.js'
 import {
   inArray,
-  ab2hex
+  ab2hex,
+  hexStringToArrayBuffer,
+  hexCharCodeToStr
 } from '../../utils/util.js'
 
 const app = getApp()
@@ -15,7 +17,8 @@ Page({
     langIndex: 0,
     devices: [],
     connected: false,
-    chs: []
+    chs: [], // 可读特征
+    wchs: [], // 可写特征
   },
   //事件处理函数
   onLoad: function() {
@@ -115,7 +118,6 @@ Page({
         } else {
           data[`devices[${idx}]`] = device
         }
-        console.log(device)
         this.setData(data)
       })
     })
@@ -148,30 +150,31 @@ Page({
       canWrite: false,
     })
   },
+  // 获取服务 有2个服务，第一个服务没有用。
   getBLEDeviceServices(deviceId) {
     wx.getBLEDeviceServices({
       deviceId,
       success: (res) => {
+        console.log(res)
         for (let i = 0; i < res.services.length; i++) {
-          if (res.services[i].isPrimary) {
-            this.getBLEDeviceCharacteristics(deviceId, res.services[i].uuid)
-            return
-          }
+          this.getBLEDeviceCharacteristics(deviceId, res.services[i].uuid)
         }
       }
     })
   },
-  // 获取设备特征块
+  // 获取设备特征块  12个可读 2个可写
   getBLEDeviceCharacteristics(deviceId, serviceId) {
     wx.getBLEDeviceCharacteristics({
       deviceId,
       serviceId,
       success: (res) => {
+        console.log('--------特征值获取成功-----------')
+        console.log(res)
         console.log('getBLEDeviceCharacteristics success', res.characteristics)
         for (let i = 0; i < res.characteristics.length; i++) {
           let item = res.characteristics[i]
           if (item.properties.read) {
-            // 读取设备信息
+            // 读取设备信息 接口读取到的信息需要在 onBLECharacteristicValueChange 方法注册的回调中获取
             wx.readBLECharacteristicValue({
               deviceId,
               serviceId,
@@ -182,13 +185,21 @@ Page({
             this.setData({
               canWrite: true
             })
-            this._deviceId = deviceId
-            this._serviceId = serviceId
-            this._characteristicId = item.uuid
-            this.writeBLECharacteristicValue()
+            // this._deviceId = deviceId
+            // this._serviceId = serviceId
+            // this._characteristicId = item.uuid
+            // this.writeBLECharacteristicValue()
+            // 找到可写特征值,并不是一个
+            this.setData({
+              wchs: [...this.data.wchs, {
+                deviceId,
+                serviceId,
+                characteristicId: item.uuid
+              }]
+            })
           }
           if (item.properties.notify || item.properties.indicate) {
-            // 订阅特征值变化
+            // 订阅特征值变化 notify或则indicate 为订阅
             wx.notifyBLECharacteristicValueChange({
               deviceId,
               serviceId,
@@ -203,7 +214,9 @@ Page({
       }
     })
     // 操作之前先监听，保证第一时间获取数据
+    // 获取可读特征值数据，订阅发出数据也会走该回调
     wx.onBLECharacteristicValueChange((characteristic) => {
+      console.log('------------获取到推送------------')
       const idx = inArray(this.data.chs, 'uuid', characteristic.characteristicId)
       const data = {}
       if (idx === -1) {
@@ -224,16 +237,35 @@ Page({
       this.setData(data)
     })
   },
-  writeBLECharacteristicValue() {
-    // 向蓝牙设备发送一个0x00的16进制数据
-    let buffer = new ArrayBuffer(1)
-    let dataView = new DataView(buffer)
-    dataView.setUint8(0, Math.random() * 255 | 0)
+  writeBLECharacteristicValue(event) {
+    // 向蓝牙设备发送4字节的数据
+    // 分别为 产品序列编号 命令号 内容 异或校验
+
+    // console.log({
+    //   deviceId: this.data.wchs[1].deviceId,
+    //   serviceId: this.data.wchs[1].serviceId,
+    //   characteristicId: this.data.wchs[1].characteristicId
+    // })
+    // console.log((0x01 ^ 0xF0 ^ 0x05).toString(16))
+
+    // let buffer = new ArrayBuffer(4)
+    // let dataView = new DataView(buffer) // 使用dataView设置ArrayBuffer字节
+    // dataView.setUint8(0, 0x01F903FD) // Uint32Array输入4字节大小(偏移量，字节)
+    // console.log(buffer)
+    // 异或校验
+    const a = event.currentTarget.dataset.a
+    const b = event.currentTarget.dataset.b
+    const deviceHex = 0x01
+    const checkByte = (deviceHex ^ a ^ b).toString(16)
+    const deviceString = hexCharCodeToStr(deviceHex)
+    const stringA = hexCharCodeToStr(a)
+    const stringB = hexCharCodeToStr(b)
+    console.log(`${deviceString}${stringA}${stringB}${checkByte}`)
     wx.writeBLECharacteristicValue({
-      deviceId: this._deviceId,
-      serviceId: this._deviceId,
-      characteristicId: this._characteristicId,
-      value: buffer,
+      deviceId: this.data.wchs[1].deviceId,
+      serviceId: this.data.wchs[1].serviceId,
+      characteristicId: this.data.wchs[1].characteristicId,
+      value: hexStringToArrayBuffer(`${deviceString}${stringA}${stringB}${checkByte}`)
     })
   },
   closeBluetoothAdapter() {
