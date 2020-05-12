@@ -4,8 +4,7 @@ import event from '../../utils/event.js'
 import {
   inArray,
   ab2hex,
-  hexStringToArrayBuffer,
-  hexCharCodeToStr
+  hexStringToArrayBuffer
 } from '../../utils/util.js'
 
 const app = getApp()
@@ -21,25 +20,25 @@ Page({
     wchs: [], // 可写特征
   },
   //事件处理函数
-  onLoad: function() {
+  onLoad: function () {
     this.setData({
       langIndex: wx.getStorageSync('langIndex') || 0
     });
     // 本页面设置为当前语言
     this.setLanguage();
   },
-  setLanguage: function() {
+  setLanguage: function () {
     this.setData({
       language: wx.T.getLanguage()
     });
   },
-  toSetting: function(e) {
+  toSetting: function (e) {
     wx.switchTab({
       url: '../setting1/setting1',
     })
   },
   // 改变语言
-  changeLanguage: function(e) {
+  changeLanguage: function (e) {
     let index = e.detail.value;
     this.setData({ // (1)
       langIndex: index
@@ -55,7 +54,7 @@ Page({
     })
   },
   // 打开蓝牙
-  openBluetoothAdapter() {
+  openBluetoothAdapter () {
     wx.openBluetoothAdapter({
       success: (res) => {
         console.log('openBluetoothAdapter success', res)
@@ -63,7 +62,7 @@ Page({
       },
       fail: (res) => {
         if (res.errCode === 10001) {
-          wx.onBluetoothAdapterStateChange(function(res) {
+          wx.onBluetoothAdapterStateChange(function (res) {
             console.log('onBluetoothAdapterStateChange', res)
             if (res.available) {
               this.startBluetoothDevicesDiscovery()
@@ -73,7 +72,7 @@ Page({
       }
     })
   },
-  getBluetoothAdapterState() {
+  getBluetoothAdapterState () {
     wx.getBluetoothAdapterState({
       success: (res) => {
         console.log('getBluetoothAdapterState', res)
@@ -86,7 +85,7 @@ Page({
     })
   },
   // 搜索蓝牙
-  startBluetoothDevicesDiscovery() {
+  startBluetoothDevicesDiscovery () {
     if (this._discoveryStarted) {
       return
     }
@@ -100,11 +99,11 @@ Page({
     })
   },
   // 停止扫描
-  stopBluetoothDevicesDiscovery() {
+  stopBluetoothDevicesDiscovery () {
     wx.stopBluetoothDevicesDiscovery()
   },
   // 对扫描到的设备操作
-  onBluetoothDeviceFound() {
+  onBluetoothDeviceFound () {
     wx.onBluetoothDeviceFound((res) => {
       res.devices.forEach(device => {
         if (!device.name && !device.localName) {
@@ -123,7 +122,7 @@ Page({
     })
   },
   // 创建蓝牙链接
-  createBLEConnection(e) {
+  createBLEConnection (e) {
     const ds = e.currentTarget.dataset
     const deviceId = ds.deviceId
     const name = ds.name
@@ -140,7 +139,7 @@ Page({
     })
     this.stopBluetoothDevicesDiscovery()
   },
-  closeBLEConnection() {
+  closeBLEConnection () {
     wx.closeBLEConnection({
       deviceId: this.data.deviceId
     })
@@ -151,7 +150,7 @@ Page({
     })
   },
   // 获取服务 有2个服务，第一个服务没有用。
-  getBLEDeviceServices(deviceId) {
+  getBLEDeviceServices (deviceId) {
     wx.getBLEDeviceServices({
       deviceId,
       success: (res) => {
@@ -163,7 +162,7 @@ Page({
     })
   },
   // 获取设备特征块  12个可读 2个可写
-  getBLEDeviceCharacteristics(deviceId, serviceId) {
+  getBLEDeviceCharacteristics (deviceId, serviceId) {
     wx.getBLEDeviceCharacteristics({
       deviceId,
       serviceId,
@@ -209,7 +208,7 @@ Page({
           }
         }
       },
-      fail(res) {
+      fail (res) {
         console.error('getBLEDeviceCharacteristics', res)
       }
     })
@@ -230,45 +229,46 @@ Page({
           value: ab2hex(characteristic.value)
         }
       }
-      // data[`chs[${this.data.chs.length}]`] = {
-      //   uuid: characteristic.characteristicId,
-      //   value: ab2hex(characteristic.value)
-      // }
       this.setData(data)
     })
   },
-  writeBLECharacteristicValue(event) {
-    // 向蓝牙设备发送4字节的数据
-    // 分别为 产品序列编号 命令号 内容 异或校验
-
-    // console.log({
-    //   deviceId: this.data.wchs[1].deviceId,
-    //   serviceId: this.data.wchs[1].serviceId,
-    //   characteristicId: this.data.wchs[1].characteristicId
-    // })
-    // console.log((0x01 ^ 0xF0 ^ 0x05).toString(16))
-
-    // let buffer = new ArrayBuffer(4)
-    // let dataView = new DataView(buffer) // 使用dataView设置ArrayBuffer字节
-    // dataView.setUint8(0, 0x01F903FD) // Uint32Array输入4字节大小(偏移量，字节)
-    // console.log(buffer)
-    // 异或校验
+  testFun (event) {
+    const deviceHex = 0x01
     const a = event.currentTarget.dataset.a
     const b = event.currentTarget.dataset.b
-    const deviceHex = 0x01
+    const deviceHexString = deviceHex.toString(16).length === 1 ? `0x0${deviceHex.toString(16)}` : `0x${deviceHex.toString(16)}`
     const checkByte = (deviceHex ^ a ^ b).toString(16)
-    const deviceString = hexCharCodeToStr(deviceHex)
-    const stringA = hexCharCodeToStr(a)
-    const stringB = hexCharCodeToStr(b)
-    console.log(`${deviceString}${stringA}${stringB}${checkByte}`)
+    const checkByteString = checkByte.length === 1 ? `0x0${checkByte}` : `0x${checkByte}`
+
+    console.log(ab2hex(hexStringToArrayBuffer(deviceHexString)).substring(2, 4))
+    console.log(ab2hex(hexStringToArrayBuffer(a)).substring(2, 4))
+    console.log(ab2hex(hexStringToArrayBuffer(b)).substring(2, 4))
+    console.log(ab2hex(hexStringToArrayBuffer(checkByteString)).substring(2, 4))
+  },
+  writeBLECharacteristicValue (event) {
+    // 向蓝牙设备发送4字节的数据
+    // 分别为 产品序列编号 命令号 内容 异或校验
+    const deviceHex = 0x01
+    const a = event.currentTarget.dataset.a
+    const b = event.currentTarget.dataset.b
+    const deviceHexString = deviceHex.toString(16).length === 1 ? `0x0${deviceHex.toString(16)}` : `0x${deviceHex.toString(16)}`
+    const checkByte = (deviceHex ^ a ^ b).toString(16)
+    const checkByteString = checkByte.length === 1 ? `0x0${checkByte}` : `0x${checkByte}`
+
+    const value = ab2hex(hexStringToArrayBuffer(deviceHexString)).substring(2, 4) +
+      ab2hex(hexStringToArrayBuffer(a)).substring(2, 4) +
+      ab2hex(hexStringToArrayBuffer(b)).substring(2, 4) +
+      ab2hex(hexStringToArrayBuffer(checkByteString)).substring(2, 4)
+
     wx.writeBLECharacteristicValue({
       deviceId: this.data.wchs[1].deviceId,
       serviceId: this.data.wchs[1].serviceId,
       characteristicId: this.data.wchs[1].characteristicId,
-      value: hexStringToArrayBuffer(`${deviceString}${stringA}${stringB}${checkByte}`)
+      value: hexStringToArrayBuffer(value)
     })
+
   },
-  closeBluetoothAdapter() {
+  closeBluetoothAdapter () {
     wx.closeBluetoothAdapter()
     this._discoveryStarted = false
   },
