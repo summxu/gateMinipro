@@ -1,13 +1,5 @@
 <!-- index.wxml -->
 <view class="container">
-  <mp-cells class="my-cells" title="带说明的列表项">
-    <mp-cell value="标题文字" footer="说明文字"></mp-cell>
-    <mp-cell>
-      <view>标题文字（使用slot）</view>
-      <view slot="footer">说明文字</view>
-    </mp-cell>
-  </mp-cells>
-  <button size="mini" data-a="0xF9" data-b="0x03" bindtap="testFun">写数据</button>
   <view class="userinfo">
     <picker bindchange="bindPickerChange" bindchange="changeLanguage" value="{{langIndex}}" range="{{languages}}">
       <view class="picker">当前选择：{{languages[langIndex]}}</view>
@@ -24,9 +16,9 @@
         return arr.length
       }
     </wxs>
-    <button bindtap="openBluetoothAdapter">开始扫描</button>
+    <!-- <button bindtap="openBluetoothAdapter">开始扫描</button>
     <button bindtap="stopBluetoothDevicesDiscovery">停止扫描</button>
-    <button bindtap="closeBluetoothAdapter">结束流程</button>
+    <button bindtap="closeBluetoothAdapter">结束流程</button> -->
     <view class="devices_summary">已发现 {{devices.length}} 个外围设备：</view>
     <scroll-view class="device_list" scroll-y scroll-with-animation>
       <view wx:for="{{devices}}" wx:key="index" data-device-id="{{item.deviceId}}" data-name="{{item.name || item.localName}}" bindtap="createBLEConnection" class="device_item" hover-class="device_item_hover">
@@ -38,11 +30,11 @@
         <view style="font-size: 10px">Service数量: {{utils.len(item.advertisServiceUUIDs)}}</view>
       </view>
     </scroll-view>
-    <view class="connected_info" wx:if="{{connected}}">
+    <!-- <view class="connected_info" wx:if="{{connected}}">
       <view>
         <text>已连接到 {{name}}</text>
         <view class="operation">
-          <button wx:if="{{canWrite}}" size="mini" data-a="0xF9" data-b="0x02" bindtap="writeBLECharacteristicValue">
+          <button wx:if="{{canWrite}}" size="mini" data-a="0xF9" data-b="0x01" bindtap="writeBLECharacteristicValue">
             写数据
           </button>
           <button size="mini" bindtap="closeBLEConnection">断开连接</button>
@@ -52,6 +44,6 @@
         <view>特性UUID: {{item.uuid}}</view>
         <view>特性值: {{item.value}}</view>
       </view>
-    </view>
+    </view> -->
   </view>
 </view>
