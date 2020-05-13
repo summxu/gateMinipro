@@ -2,7 +2,7 @@
 <view class="container">
   <view class="userinfo">
     <picker bindchange="bindPickerChange" bindchange="changeLanguage" value="{{langIndex}}" range="{{languages}}">
-      <view class="picker">当前选择：{{languages[langIndex]}}</view>
+      <view class="picker">选择语言：{{languages[langIndex]}}</view>
     </picker>
     <button bindtap="toSetting">{{language.language}}</button>
   </view>
