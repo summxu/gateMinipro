@@ -1,11 +1,14 @@
 <!-- pages/setting1/setting1.wxml -->
 <view class="container">
   <mp-toptips ext-class="toptip-custom" msg="{{topTipMsg}}" type="info" show="{{toptipShow}}"></mp-toptips>
+  <mp-toptips ext-class="toptip-custom" msg="{{topTipMsg}}" type="error" show="{{errorShow}}"></mp-toptips>
   <mp-cells class="cells-custom">
-    <mp-cell ext-class="cell-custom" prop="mobile" title="手机号">
+    <mp-cell ext-class="cell-custom" title="手机号">
       <input type="number" bindinput="formInputChange" data-field="mobile" class="weui-input" />
       <view slot="footer" class="weui-vcode-btn">
-        <a class="weui-btn weui-btn_mini weui-btn_default">保存</a>
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="mobile" data-att="0xF9" data-b="0x03" bind:tap="saveFun">
+          保存
+        </a>
         <a data-page="setting1" data-key="topTip1" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
           <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
         </a>

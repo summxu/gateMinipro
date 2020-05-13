@@ -8,7 +8,9 @@ Page({
   data: {
     language: '',
     toptipShow: false,
-    topTipMsg: '你好啊'
+    errorShow: false,
+    topTipMsg: '',
+    form: {}
   },
 
   /**
@@ -31,8 +33,29 @@ Page({
     console.log(this.data.language[page][key])
     this.setData({
       toptipShow: true,
-      // toptipMessage: this.data.language[page][key]
+      topTipMsg: this.data.language[page][key]
     })
+  },
+  // 输入框双向绑定
+  formInputChange (event) {
+    const value = event.detail.value
+    const key = event.currentTarget.dataset.field
+    this.setData({
+      form: { [key]: value }
+    })
+  },
+  // 保存
+  saveFun (event) {
+    const field = event.currentTarget.dataset.field
+    const att = event.currentTarget.dataset.att
+    if (!this.data.form[field] || this.data.form[field] == '') {
+      this.setData({
+        errorShow: true,
+        topTipMsg: '写入数据不能为空!'
+      })
+      return false
+    }
+    console.log(att, this.data.form[field])
   },
   // 退出断开连接
   logOut () {
