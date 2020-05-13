@@ -9,3 +9,29 @@
   /* padding: 200rpx 0; */
   box-sizing: border-box;
 } 
+
+.cells-custom {
+  width: 100% !important;
+}
+.cell-custom {
+  font-size: 32rpx;
+  padding: 0 30rpx;
+}
+
+.cell-custom .weui-input {
+  padding-left: 20rpx;
+}
+.cell-custom .weui-btn {
+  background-color: rgba(0,0,0,0);
+  height: 100%;
+  line-height: 110rpx;
+}
+
+.weui-btn+.weui-btn {
+  margin: 0;
+}
+
+.toptip-custom {
+  top: unset;
+  bottom: 8px;
+}

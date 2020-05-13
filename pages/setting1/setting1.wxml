@@ -1,2 +1,16 @@
-<!--pages/setting1/setting1.wxml-->
-<text>pages/setting1/setting1.wxml</text>
+<!-- pages/setting1/setting1.wxml -->
+<view class="container">
+  <mp-toptips ext-class="toptip-custom" msg="{{topTipMsg}}" type="info" show="{{toptipShow}}"></mp-toptips>
+  <mp-cells class="cells-custom">
+    <mp-cell ext-class="cell-custom" prop="mobile" title="手机号">
+      <input type="number" bindinput="formInputChange" data-field="mobile" class="weui-input" />
+      <view slot="footer" class="weui-vcode-btn">
+        <a class="weui-btn weui-btn_mini weui-btn_default">保存</a>
+        <a data-page="setting1" data-key="topTip1" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+        </a>
+      </view>
+    </mp-cell>
+  </mp-cells>
+  <button bindtap="logOut">退出登录</button>
+</view>

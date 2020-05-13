@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/setting1/setting1",
+    "pages/index/index",
     "pages/setting2/setting2"
   ],
   "window": {

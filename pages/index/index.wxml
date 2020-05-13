@@ -1,16 +1,8 @@
 <!-- index.wxml -->
 <view class="container">
-  <mp-cells class="my-cells" title="带说明的列表项">
-    <mp-cell value="标题文字" footer="说明文字"></mp-cell>
-    <mp-cell>
-      <view>标题文字（使用slot）</view>
-      <view slot="footer">说明文字</view>
-    </mp-cell>
-  </mp-cells>
-  <button size="mini" data-a="0xF9" data-b="0x03" bindtap="testFun">写数据</button>
   <view class="userinfo">
     <picker bindchange="bindPickerChange" bindchange="changeLanguage" value="{{langIndex}}" range="{{languages}}">
-      <view class="picker">当前选择：{{languages[langIndex]}}</view>
+      <view class="picker">选择语言：{{languages[langIndex]}}</view>
     </picker>
     <button bindtap="toSetting">{{language.language}}</button>
   </view>
