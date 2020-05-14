@@ -1,8 +1,10 @@
 {
   "pages": [
-    "pages/setting1/setting1",
     "pages/index/index",
-    "pages/setting2/setting2"
+    "pages/setting4/setting4",
+    "pages/setting3/setting3",
+    "pages/setting2/setting2",
+    "pages/setting1/setting1"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,6 +25,14 @@
       {
         "text": "配置项二",
         "pagePath": "pages/setting2/setting2"
+      },
+      {
+        "text": "配置项三",
+        "pagePath": "pages/setting3/setting3"
+      },
+      {
+        "text": "配置项四",
+        "pagePath": "pages/setting4/setting4"
       }
     ],
     "position": "top"

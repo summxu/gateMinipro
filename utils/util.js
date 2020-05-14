@@ -1,3 +1,8 @@
+/*
+ * @Author: Chenxu
+ * @Date: 2020-05-14 18:28:35
+ * @LastEditTime: 2020-05-14 18:42:11
+ */
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -70,10 +75,16 @@ function hexCharCodeToStr (hexCharCodeStr) {
   return resultStr.join("");
 }
 
+// 获取蓝牙翻译名称
+function getDeviceNickName (deviceName) {
+  return '翼闸'
+}
+
 module.exports = {
   formatTime,
   inArray,
   ab2hex,
   hexStringToArrayBuffer,
-  hexCharCodeToStr
+  hexCharCodeToStr,
+  getDeviceNickName
 }

@@ -2,3 +2,26 @@
 .my-cells{
   width: 100%
 }
+
+.picker-languages {
+  position: absolute;
+  top: 20rpx;
+  right: 30rpx;
+  color: #07c160;
+  font-weight: 700;
+}
+
+.device_list {
+  width: 100%;
+}
+
+.devices_summary {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 20rpx;
+}
+
+.container {
+  padding: 0 30rpx;
+  padding-top: 80rpx;
+}

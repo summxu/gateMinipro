@@ -1,66 +1,95 @@
 // pages/setting2/setting2.js
+import event from '../../utils/event'
+const app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    language: '',
+    toptipShow: false,
+    errorShow: false,
+    topTipMsg: '',
+    form: {},
+    levels: [1, 2, 3, 4, 5],
+    yesOrNo: ['否', '是'],
+    sounds: ['取消声音', '欢迎光临', '一路顺风', '请进']
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setLanguage();	// (1)
+    event.on("languageChanged", this, this.setLanguage); // (2)
+    this.initForm()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  setLanguage () {
+    this.setData({
+      language: wx.T.getLanguage()
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  // picker 是否
+  changeYesOrNo (event) {
+    let value = event.detail.value;
+    const key = event.currentTarget.dataset.field
+    this.setData({
+      form: {
+        ...this.data.form,
+        [key]: value
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  // 修改等级
+  changeLevel (event) {
+    let value = event.detail.value;
+    const key = event.currentTarget.dataset.field
+    this.setData({
+      form: {
+        ...this.data.form,
+        [key]: Number(value) + 1
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  // 初始化值
+  initForm () {
+    var tempJson = app.getContentToJson()
+    for (const key in tempJson) {
+      if (tempJson.hasOwnProperty(key)) {
+        var element = tempJson[key];
+        // 去 0 操作
+        tempJson[key] = element.replace(0, '')
+      }
+    }
+    this.setData({
+      form: tempJson
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  // showToptip
+  showTopTip (event) {
+    const page = event.currentTarget.dataset.page
+    const key = event.currentTarget.dataset.key
+    this.setData({
+      toptipShow: true,
+      topTipMsg: this.data.language[page][key]
+    })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  // 保存
+  saveFun (event) {
+    const field = event.currentTarget.dataset.field
+    if (!this.data.form[field] || this.data.form[field] == '') {
+      this.setData({
+        errorShow: true,
+        topTipMsg: '写入数据不能为空!'
+      })
+      return false
+    }
+    // 判断没有 0 添 0 操作
+    var tempStr = String(this.data.form[field]).length === 1 ? '0' + String(this.data.form[field]) : String(this.data.form[field])
+    console.log('0x' + field, '0x' + tempStr)
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 退出断开连接
+  logOut () {
+    wx.redirectTo({ url: '../index/index' });
   }
 })

@@ -17,8 +17,11 @@
   font-size: 32rpx;
   padding: 0 30rpx;
 }
-
-.cell-custom .weui-input {
+.cells-custom .weui-cell__hd {
+  font-size: 28rpx;
+  min-width: 200rpx;
+}
+.cell-custom .weui-input,.picker {
   padding-left: 20rpx;
 }
 .cell-custom .weui-btn {
@@ -26,7 +29,11 @@
   height: 100%;
   line-height: 110rpx;
 }
-
+.cell-custom .danwei {
+  position: absolute;
+  left: -60rpx;
+  z-index: 6657;
+}
 .weui-btn+.weui-btn {
   margin: 0;
 }
@@ -34,4 +41,28 @@
 .toptip-custom {
   top: unset;
   bottom: 8px;
+}
+
+.picker {
+  max-width: 200rpx;
+}
+
+/* 一行折叠 */
+.one-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+.div-line {
+  padding: 30rpx;
+}
+
+.div-line .btn-left {
+  margin-right: 30rpx;
+  width: 400rpx;
+}
+
+.log-out {
+  margin-top: 40rpx;
 }

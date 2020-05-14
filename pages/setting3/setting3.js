@@ -1,9 +1,4 @@
-/*
- * @Author: Chenxu
- * @Date: 2020-05-14 18:28:35
- * @LastEditTime: 2020-05-14 19:35:22
- */
-// pages/setting1/setting1.js
+// pages/setting2/setting2.js
 import event from '../../utils/event'
 const app = getApp()
 Page({
@@ -16,7 +11,13 @@ Page({
     errorShow: false,
     topTipMsg: '',
     form: {},
-    levels: [1, 2, 3, 4, 5]
+    levels: [3, 4, 5, 6, 7, 8, 16],
+    sounds: ['取消声音', '欢迎光临', '一路顺风', '请进'],
+    d0Range: ['不处理', '只是语音报警', '语音报警并尝试关门', '语音报警并尝试关门后再开门', '语音报警并强制立即关门', '语音报警并强制立即关门后再开门'],
+    d1Range: ['不处理', '只语音报警', '只要防夹信号没人就立即关门', '立即关门，不考虑防夹信号'],
+    d2Range: ['不处理', '防夹反弹', '防夹暂停'],
+    d4Range: ['取消', '左红外开门', '右红外开门'],
+    d5Range: ['断电不开闸', '左开闸', '右开闸']
   },
 
   /**
@@ -31,6 +32,17 @@ Page({
     this.setData({
       language: wx.T.getLanguage()
     });
+  },
+  // picker 是否
+  changeYesOrNo (event) {
+    let value = event.detail.value;
+    const key = event.currentTarget.dataset.field
+    this.setData({
+      form: {
+        ...this.data.form,
+        [key]: value
+      }
+    })
   },
   // 修改等级
   changeLevel (event) {
@@ -66,17 +78,6 @@ Page({
       topTipMsg: this.data.language[page][key]
     })
   },
-  // 输入框双向绑定
-  formInputChange (event) {
-    const value = event.detail.value
-    const key = event.currentTarget.dataset.field
-    this.setData({
-      form: {
-        ...this.data.form,
-        [key]: value
-      }
-    })
-  },
   // 保存
   saveFun (event) {
     const field = event.currentTarget.dataset.field
@@ -90,7 +91,6 @@ Page({
     // 判断没有 0 添 0 操作
     var tempStr = String(this.data.form[field]).length === 1 ? '0' + String(this.data.form[field]) : String(this.data.form[field])
     console.log('0x' + field, '0x' + tempStr)
-    app.writeBLECharacteristicValue('0x' + field, '0x' + tempStr)
   },
   // 退出断开连接
   logOut () {

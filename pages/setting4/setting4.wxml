@@ -1,0 +1,44 @@
+<!-- pages/setting4/setting4.wxml -->
+<view class="container">
+  <mp-toptips ext-class="toptip-custom" msg="{{topTipMsg}}" type="info" show="{{toptipShow}}"></mp-toptips>
+  <mp-toptips ext-class="toptip-custom" msg="{{topTipMsg}}" type="error" show="{{errorShow}}"></mp-toptips>
+  <mp-cells class="cells-custom">
+    <!-- D9 -->
+    <view class="div-line">
+      <a class="weui-btn weui-btn_default weui-btn_mini btn-left" data-field="D9" bind:tap="optionFun">
+        {{language.setting4.label1}}
+      </a>
+      <a data-page="setting4" data-key="topTip1" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+        <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+      </a>
+    </view>
+    <!-- DA -->
+    <view class="div-line">
+      <a class="weui-btn btn-left weui-btn_default weui-btn_mini" data-field="DA" bind:tap="saveFun">
+        {{language.setting4.label2}}
+      </a>
+      <a data-page="setting4" data-key="topTip2" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+        <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+      </a>
+    </view>
+    <!-- DB -->
+    <view class="div-line">
+      <a class="weui-btn  btn-left weui-btn_default weui-btn_mini" data-field="DB" bind:tap="saveFun">
+        {{language.setting4.label3}}
+      </a>
+      <a data-page="setting4" data-key="topTip3" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+        <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+      </a>
+    </view>
+    <!-- DC -->
+    <view class="div-line">
+      <a class="weui-btn btn-left weui-btn_default weui-btn_mini" data-field="DC" bind:tap="saveFun">
+        {{language.setting4.label4}}
+      </a>
+      <a data-page="setting4" data-key="topTip4" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+        <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+      </a>
+    </view>
+  </mp-cells>
+  <button class="log-out" bindtap="logOut" type="warn">断开连接</button>
+</view>
