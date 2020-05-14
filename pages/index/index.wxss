@@ -21,6 +21,14 @@
   margin-bottom: 20rpx;
 }
 
+.device_item {
+  padding: 20rpx 0 ;
+}
+
+.device_item_hover {
+  background-color: rgba(0,0,0,0.5);
+}
+
 .container {
   padding: 0 30rpx;
   padding-top: 80rpx;

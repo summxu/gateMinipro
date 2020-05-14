@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2020-05-14 18:28:35
- * @LastEditTime: 2020-05-14 19:35:49
+ * @LastEditTime: 2020-05-14 21:39:33
  */
 //app.js
 import locales from './utils/locales.js';
@@ -80,10 +80,27 @@ App({
 
     // 写入服务
     wx.writeBLECharacteristicValue({
-      deviceId: this.data.wchs[1].deviceId,
-      serviceId: this.data.wchs[1].serviceId,
-      characteristicId: this.data.wchs[1].characteristicId,
-      value: hexStringToArrayBuffer(value)
+      deviceId: this.globalData.wchs[1].deviceId,
+      serviceId: this.globalData.wchs[1].serviceId,
+      characteristicId: this.globalData.wchs[1].characteristicId,
+      value: hexStringToArrayBuffer(value),
+      success: (res) => {
+        wx.showToast({
+          title: '操作成功！',  // 标题
+          duration: 800   // 提示窗停留时间，默认1500ms
+        })
+      },
+      fail: (res) => {
+        // 检查报错信息
+        if (res.errCode === 10006) {
+          wx.showToast({
+            title: '写入失败，设备断开连接！',  // 标题
+            icon: 'none',
+            duration: 1500   // 提示窗停留时间，默认1500ms
+          })
+          wx.redirectTo({ url: '../index/index' });
+        }
+      }
     })
 
   }

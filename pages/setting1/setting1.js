@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2020-05-14 18:28:35
- * @LastEditTime: 2020-05-14 19:35:22
+ * @LastEditTime: 2020-05-14 21:29:44
  */
 // pages/setting1/setting1.js
 import event from '../../utils/event'

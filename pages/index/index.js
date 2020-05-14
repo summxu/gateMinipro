@@ -29,6 +29,13 @@ Page({
     // 开始搜索蓝牙
     this.openBluetoothAdapter()
   },
+  onShow: function (options) {
+    wx.showToast({
+      title: '搜索设备...',
+      icon: 'loading',
+      mask: true
+    })
+  },
   setLanguage: function () {
     this.setData({
       language: wx.T.getLanguage()
@@ -106,6 +113,7 @@ Page({
   },
   // 对扫描到的设备操作
   onBluetoothDeviceFound () {
+    wx.hideLoading()
     wx.onBluetoothDeviceFound((res) => {
       res.devices.forEach(device => {
         if (!device.name && !device.localName) {
@@ -173,9 +181,14 @@ Page({
       deviceId,
       serviceId,
       success: (res) => {
+        wx.showToast({
+          title: '加载中...',
+          icon: 'loading',
+          duration: 1500,
+          mask: true
+        })
         console.log('--------特征值获取成功-----------')
         console.log(res)
-        console.log('getBLEDeviceCharacteristics success', res.characteristics)
         for (let i = 0; i < res.characteristics.length; i++) {
           let item = res.characteristics[i]
           if (item.properties.read) {
