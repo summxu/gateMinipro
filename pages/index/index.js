@@ -4,7 +4,7 @@ import event from '../../utils/event.js'
 import {
   inArray,
   ab2hex,
-  hexStringToArrayBuffer
+  getDeviceNickName
 } from '../../utils/util.js'
 
 const app = getApp()
@@ -26,6 +26,8 @@ Page({
     });
     // 本页面设置为当前语言
     this.setLanguage();
+    // 开始搜索蓝牙
+    this.openBluetoothAdapter()
   },
   setLanguage: function () {
     this.setData({
@@ -112,10 +114,14 @@ Page({
         const foundDevices = this.data.devices
         const idx = inArray(foundDevices, 'deviceId', device.deviceId)
         const data = {}
+        const tempDevice = {
+          ...device,
+          nickName: getDeviceNickName(device.name || device.localName)
+        }
         if (idx === -1) {
-          data[`devices[${foundDevices.length}]`] = device
+          data[`devices[${foundDevices.length}]`] = tempDevice
         } else {
-          data[`devices[${idx}]`] = device
+          data[`devices[${idx}]`] = tempDevice
         }
         this.setData(data)
       })
@@ -184,10 +190,7 @@ Page({
             this.setData({
               canWrite: true
             })
-            // this._deviceId = deviceId
-            // this._serviceId = serviceId
-            // this._characteristicId = item.uuid
-            // this.writeBLECharacteristicValue()
+
             // 找到可写特征值,并不是一个
             this.setData({
               wchs: [...this.data.wchs, {
@@ -196,6 +199,17 @@ Page({
                 characteristicId: item.uuid
               }]
             })
+
+            // 把可写特征值存入 gloabData
+            // 找到可写特征值,并不是一个
+            app.globalData.wchs = [
+              ...this.data.wchs,
+              {
+                deviceId,
+                serviceId,
+                characteristicId: item.uuid
+              }
+            ]
           }
           if (item.properties.notify || item.properties.indicate) {
             // 订阅特征值变化 notify或则indicate 为订阅
@@ -212,6 +226,7 @@ Page({
         console.error('getBLEDeviceCharacteristics', res)
       }
     })
+    // 0000FFF2-0000-1000-8000-00805F9B34FB 数据在uuid为这个里面
     // 操作之前先监听，保证第一时间获取数据
     // 获取可读特征值数据，订阅发出数据也会走该回调
     wx.onBLECharacteristicValueChange((characteristic) => {
@@ -230,44 +245,15 @@ Page({
         }
       }
       this.setData(data)
+      if (characteristic.characteristicId == '0000FFF2-0000-1000-8000-00805F9B34FB') {
+        // 把内容存入globalData
+        app.globalData.content = ab2hex(characteristic.value)
+        // 跳转页面
+        this.toSetting()
+      }
     })
   },
-  testFun (event) {
-    const deviceHex = 0x01
-    const a = event.currentTarget.dataset.a
-    const b = event.currentTarget.dataset.b
-    const deviceHexString = deviceHex.toString(16).length === 1 ? `0x0${deviceHex.toString(16)}` : `0x${deviceHex.toString(16)}`
-    const checkByte = (deviceHex ^ a ^ b).toString(16)
-    const checkByteString = checkByte.length === 1 ? `0x0${checkByte}` : `0x${checkByte}`
 
-    console.log(ab2hex(hexStringToArrayBuffer(deviceHexString)).substring(2, 4))
-    console.log(ab2hex(hexStringToArrayBuffer(a)).substring(2, 4))
-    console.log(ab2hex(hexStringToArrayBuffer(b)).substring(2, 4))
-    console.log(ab2hex(hexStringToArrayBuffer(checkByteString)).substring(2, 4))
-  },
-  writeBLECharacteristicValue (event) {
-    // 向蓝牙设备发送4字节的数据
-    // 分别为 产品序列编号 命令号 内容 异或校验
-    const deviceHex = 0x01
-    const a = event.currentTarget.dataset.a
-    const b = event.currentTarget.dataset.b
-    const deviceHexString = deviceHex.toString(16).length === 1 ? `0x0${deviceHex.toString(16)}` : `0x${deviceHex.toString(16)}`
-    const checkByte = (deviceHex ^ a ^ b).toString(16)
-    const checkByteString = checkByte.length === 1 ? `0x0${checkByte}` : `0x${checkByte}`
-
-    const value = ab2hex(hexStringToArrayBuffer(deviceHexString)).substring(2, 4) +
-      ab2hex(hexStringToArrayBuffer(a)).substring(2, 4) +
-      ab2hex(hexStringToArrayBuffer(b)).substring(2, 4) +
-      ab2hex(hexStringToArrayBuffer(checkByteString)).substring(2, 4)
-
-    wx.writeBLECharacteristicValue({
-      deviceId: this.data.wchs[1].deviceId,
-      serviceId: this.data.wchs[1].serviceId,
-      characteristicId: this.data.wchs[1].characteristicId,
-      value: hexStringToArrayBuffer(value)
-    })
-
-  },
   closeBluetoothAdapter () {
     wx.closeBluetoothAdapter()
     this._discoveryStarted = false

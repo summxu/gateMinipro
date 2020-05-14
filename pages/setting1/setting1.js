@@ -1,3 +1,8 @@
+/*
+ * @Author: Chenxu
+ * @Date: 2020-05-14 18:28:35
+ * @LastEditTime: 2020-05-14 19:35:22
+ */
 // pages/setting1/setting1.js
 import event from '../../utils/event'
 const app = getApp()
@@ -85,6 +90,7 @@ Page({
     // 判断没有 0 添 0 操作
     var tempStr = String(this.data.form[field]).length === 1 ? '0' + String(this.data.form[field]) : String(this.data.form[field])
     console.log('0x' + field, '0x' + tempStr)
+    app.writeBLECharacteristicValue('0x' + field, '0x' + tempStr)
   },
   // 退出断开连接
   logOut () {

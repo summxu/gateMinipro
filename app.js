@@ -1,6 +1,16 @@
+/*
+ * @Author: Chenxu
+ * @Date: 2020-05-14 18:28:35
+ * @LastEditTime: 2020-05-14 19:35:49
+ */
 //app.js
 import locales from './utils/locales.js';
 import T from './utils/i18n.js';
+
+import {
+  ab2hex,
+  hexStringToArrayBuffer
+} from './utils/util.js'
 
 //用 /utils/locales 注册了 locale
 T.registerLocale(locales);
@@ -14,8 +24,8 @@ App({
     // 程序启动hook
   },
   globalData: {
-    userInfo: null,
-    content: '01020304050203010003020002010203010003020100'
+    content: '',
+    wchs: []
   },
   getContentToJson () {
     var arr = []
@@ -53,5 +63,28 @@ App({
     }
 
     return tempJson
+  },
+  // 写入数据
+  writeBLECharacteristicValue (a, b) {
+    // 向蓝牙设备发送4字节的数据
+    // 分别为 产品序列编号 命令号 内容 异或校验
+    const deviceHex = 0x01 // 设备代码
+    const deviceHexString = deviceHex.toString(16).length === 1 ? `0x0${deviceHex.toString(16)}` : `0x${deviceHex.toString(16)}`
+    const checkByte = (deviceHex ^ a ^ b).toString(16)
+    const checkByteString = checkByte.length === 1 ? `0x0${checkByte}` : `0x${checkByte}`
+
+    const value = ab2hex(hexStringToArrayBuffer(deviceHexString)).substring(2, 4) +
+      ab2hex(hexStringToArrayBuffer(a)).substring(2, 4) +
+      ab2hex(hexStringToArrayBuffer(b)).substring(2, 4) +
+      ab2hex(hexStringToArrayBuffer(checkByteString)).substring(2, 4)
+
+    // 写入服务
+    wx.writeBLECharacteristicValue({
+      deviceId: this.data.wchs[1].deviceId,
+      serviceId: this.data.wchs[1].serviceId,
+      characteristicId: this.data.wchs[1].characteristicId,
+      value: hexStringToArrayBuffer(value)
+    })
+
   }
 })
