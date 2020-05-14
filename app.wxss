@@ -53,3 +53,16 @@
   text-overflow: ellipsis;
   white-space: nowrap
 }
+
+.div-line {
+  padding: 30rpx;
+}
+
+.div-line .btn-left {
+  margin-right: 30rpx;
+  width: 400rpx;
+}
+
+.log-out {
+  margin-top: 40rpx;
+}

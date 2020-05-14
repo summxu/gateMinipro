@@ -76,5 +76,4 @@
       </view>
     </mp-cell>
   </mp-cells>
-  <!-- <button bindtap="logOut">退出登录</button> -->
 </view>
