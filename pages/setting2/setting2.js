@@ -11,7 +11,9 @@ Page({
     errorShow: false,
     topTipMsg: '',
     form: {},
-    levels: [1, 2, 3, 4, 5]
+    levels: [1, 2, 3, 4, 5],
+    yesOrNo: ['否', '是'],
+    sounds: ['取消声音', '欢迎光临', '一路顺风', '请进']
   },
 
   /**
@@ -26,6 +28,17 @@ Page({
     this.setData({
       language: wx.T.getLanguage()
     });
+  },
+  // picker 是否
+  changeYesOrNo (event) {
+    let value = event.detail.value;
+    const key = event.currentTarget.dataset.field
+    this.setData({
+      form: {
+        ...this.data.form,
+        [key]: value
+      }
+    })
   },
   // 修改等级
   changeLevel (event) {
@@ -59,17 +72,6 @@ Page({
     this.setData({
       toptipShow: true,
       topTipMsg: this.data.language[page][key]
-    })
-  },
-  // 输入框双向绑定
-  formInputChange (event) {
-    const value = event.detail.value
-    const key = event.currentTarget.dataset.field
-    this.setData({
-      form: {
-        ...this.data.form,
-        [key]: value
-      }
     })
   },
   // 保存

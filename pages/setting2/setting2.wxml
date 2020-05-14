@@ -3,82 +3,96 @@
   <mp-toptips ext-class="toptip-custom" msg="{{topTipMsg}}" type="info" show="{{toptipShow}}"></mp-toptips>
   <mp-toptips ext-class="toptip-custom" msg="{{topTipMsg}}" type="error" show="{{errorShow}}"></mp-toptips>
   <mp-cells class="cells-custom">
-    <mp-cell ext-class="cell-custom" title="{{language.setting1.label1}}">
-      <input type="number" value="{{form.F0}}" bindinput="formInputChange" data-field="F0" class="weui-input" />
-      <view slot="footer" class="weui-vcode-btn">
-        <span class="danwei">秒</span>
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="F0" bind:tap="saveFun">保存</a>
-        <a data-page="setting1" data-key="topTip1" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
-          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
-        </a>
-      </view>
-    </mp-cell>
-    <!-- F1 -->
-    <mp-cell ext-class="cell-custom" title="{{language.setting1.label2}}">
-      <input type="number" value="{{form.F1}}" bindinput="formInputChange" data-field="F1" class="weui-input" />
-      <view slot="footer" class="weui-vcode-btn">
-        <span class="danwei">秒</span>
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="F1" bind:tap="saveFun">保存</a>
-        <a data-page="setting1" data-key="topTip2" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
-          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
-        </a>
-      </view>
-    </mp-cell>
-    <!-- F2 -->
-    <mp-cell ext-class="cell-custom" title="{{language.setting1.label3}}">
-      <input type="number" value="{{form.F2}}" bindinput="formInputChange" data-field="F2" class="weui-input" />
-      <view slot="footer" class="weui-vcode-btn">
-        <span class="danwei">秒</span>
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="F2" bind:tap="saveFun">保存</a>
-        <a data-page="setting1" data-key="topTip3" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
-          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
-        </a>
-      </view>
-    </mp-cell>
-    <!-- F3 -->
-    <mp-cell ext-class="cell-custom" title="{{language.setting1.label4}}">
-      <picker bindchange="changeLevel" data-field="F3" value="{{form.F3 - 1}}" range="{{levels}}">
-        <view class="picker">第 {{levels[form.F3 - 1]}} 级</view>
+    <!-- F7 -->
+    <mp-cell ext-class="cell-custom" title="{{language.setting2.label1}}">
+      <picker bindchange="changeYesOrNo" data-field="F7" value="{{form.F7}}" range="{{yesOrNo}}">
+        <view class="picker">{{yesOrNo[form.F7]}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="F3" bind:tap="saveFun">保存</a>
-        <a data-page="setting1" data-key="topTip4" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="F7" bind:tap="saveFun">保存</a>
+        <a data-page="setting2" data-key="topTip1" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
           <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
         </a>
       </view>
     </mp-cell>
-    <!-- F4 -->
-    <mp-cell ext-class="cell-custom" title="{{language.setting1.label5}}">
-      <picker bindchange="changeLevel" data-field="F4" value="{{form.F4 - 1}}" range="{{levels}}">
-        <view class="picker">第 {{levels[form.F4 - 1]}} 级</view>
+    <!-- F8 -->
+    <mp-cell ext-class="cell-custom" title="{{language.setting2.label2}}">
+      <picker bindchange="changeYesOrNo" data-field="F8" value="{{form.F8}}" range="{{yesOrNo}}">
+        <view class="picker">{{yesOrNo[form.F8]}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="F4" bind:tap="saveFun">保存</a>
-        <a data-page="setting1" data-key="topTip5" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="F8" bind:tap="saveFun">保存</a>
+        <a data-page="setting2" data-key="topTip2" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
           <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
         </a>
       </view>
     </mp-cell>
-    <!-- F5 -->
-    <mp-cell ext-class="cell-custom" title="{{language.setting1.label6}}">
-      <picker bindchange="changeLevel" data-field="F5" value="{{form.F5 - 1}}" range="{{levels}}">
-        <view class="picker">第 {{levels[form.F5 - 1]}} 级</view>
+    <!-- F9 -->
+    <mp-cell ext-class="cell-custom" title="{{language.setting2.label3}}">
+      <picker bindchange="changeYesOrNo" data-field="F9" value="{{form.F9}}" range="{{sounds}}">
+        <view class="picker">{{sounds[form.F9]}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="F5" bind:tap="saveFun">保存</a>
-        <a data-page="setting1" data-key="topTip6" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="F9" bind:tap="saveFun">保存</a>
+        <a data-page="setting2" data-key="topTip3" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
           <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
         </a>
       </view>
     </mp-cell>
-    <!-- F6 -->
-    <mp-cell ext-class="cell-custom" title="{{language.setting1.label7}}">
-      <picker bindchange="changeLevel" data-field="F6" value="{{form.F6 - 1}}" range="{{levels}}">
-        <view class="picker">第 {{levels[form.F6 - 1]}} 级</view>
+    <!-- FA -->
+    <mp-cell ext-class="cell-custom" title="{{language.setting2.label4}}">
+      <picker bindchange="changeYesOrNo" data-field="FA" value="{{form.FA}}" range="{{sounds}}">
+        <view class="picker">{{sounds[form.FA]}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="F6" bind:tap="saveFun">保存</a>
-        <a data-page="setting1" data-key="topTip7" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="FA" bind:tap="saveFun">保存</a>
+        <a data-page="setting2" data-key="topTip4" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+        </a>
+      </view>
+    </mp-cell>
+    <!-- FB -->
+    <mp-cell ext-class="cell-custom" title="{{language.setting2.label5}}">
+      <picker bindchange="changeYesOrNo" data-field="FB" value="{{form.FB}}" range="{{sounds}}">
+        <view class="picker">{{sounds[form.FB]}}</view>
+      </picker>
+      <view slot="footer" class="weui-vcode-btn">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="FB" bind:tap="saveFun">保存</a>
+        <a data-page="setting2" data-key="topTip5" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+        </a>
+      </view>
+    </mp-cell>
+    <!-- FC -->
+    <mp-cell ext-class="cell-custom" title="{{language.setting2.label6}}">
+      <picker bindchange="changeYesOrNo" data-field="FC" value="{{form.FC}}" range="{{sounds}}">
+        <view class="picker">{{sounds[form.FC]}}</view>
+      </picker>
+      <view slot="footer" class="weui-vcode-btn">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="FC" bind:tap="saveFun">保存</a>
+        <a data-page="setting2" data-key="topTip6" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+        </a>
+      </view>
+    </mp-cell>
+    <!-- FD -->
+    <mp-cell ext-class="cell-custom" title="{{language.setting2.label7}}">
+      <picker bindchange="changeYesOrNo" data-field="FD" value="{{form.FD}}" range="{{sounds}}">
+        <view class="picker">{{sounds[form.FD]}}</view>
+      </picker>
+      <view slot="footer" class="weui-vcode-btn">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="FD" bind:tap="saveFun">保存</a>
+        <a data-page="setting2" data-key="topTip7" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+        </a>
+      </view>
+    </mp-cell>
+    <!-- FE -->
+    <mp-cell ext-class="cell-custom" title="{{language.setting2.label8}}">
+      <slider value="{{form.FE}}" data-field="FE" bindchange="changeYesOrNo" min="1" max="20" show-value />
+      <view slot="footer" class="weui-vcode-btn">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="FE" bind:tap="saveFun">保存</a>
+        <a data-page="setting2" data-key="topTip8" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
           <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
         </a>
       </view>

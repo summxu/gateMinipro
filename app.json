@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/setting2/setting2",
     "pages/setting1/setting1",
-    "pages/index/index",
-    "pages/setting2/setting2"
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
