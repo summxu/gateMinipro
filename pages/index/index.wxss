@@ -2,3 +2,11 @@
 .my-cells{
   width: 100%
 }
+
+.picker-languages {
+  position: absolute;
+  top: 20rpx;
+  right: 30rpx;
+  color: #07c160;
+  font-weight: 700;
+}

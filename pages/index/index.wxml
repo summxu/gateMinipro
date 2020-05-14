@@ -1,10 +1,10 @@
 <!-- index.wxml -->
 <view class="container">
   <view class="userinfo">
+    <!-- 语言选择 -->
     <picker bindchange="bindPickerChange" bindchange="changeLanguage" value="{{langIndex}}" range="{{languages}}">
-      <view class="picker">选择语言：{{languages[langIndex]}}</view>
+      <view class="picker-languages">{{languages[langIndex]}}</view>
     </picker>
-    <button bindtap="toSetting">{{language.language}}</button>
   </view>
   <view>
     <wxs module="utils">
@@ -16,11 +16,11 @@
         return arr.length
       }
     </wxs>
-    <button bindtap="openBluetoothAdapter">开始扫描</button>
+    <!-- <button bindtap="openBluetoothAdapter">开始扫描</button>
     <button bindtap="stopBluetoothDevicesDiscovery">停止扫描</button>
     <button bindtap="closeBluetoothAdapter">结束流程</button>
-    <view class="devices_summary">已发现 {{devices.length}} 个外围设备：</view>
-    <scroll-view class="device_list" scroll-y scroll-with-animation>
+    <view class="devices_summary">已发现 {{devices.length}} 个外围设备：</view> -->
+    <!-- <scroll-view class="device_list" scroll-y scroll-with-animation>
       <view wx:for="{{devices}}" wx:key="index" data-device-id="{{item.deviceId}}" data-name="{{item.name || item.localName}}" bindtap="createBLEConnection" class="device_item" hover-class="device_item_hover">
         <view style="font-size: 16px; color: #333;">{{item.name}}</view>
         <view style="font-size: 10px">
@@ -44,6 +44,6 @@
         <view>特性UUID: {{item.uuid}}</view>
         <view>特性值: {{item.value}}</view>
       </view>
-    </view>
+    </view> -->
   </view>
 </view>

@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/setting4/setting4",
     "pages/setting3/setting3",
     "pages/setting2/setting2",
-    "pages/setting1/setting1",
-    "pages/index/index"
+    "pages/setting1/setting1"
   ],
   "window": {
     "backgroundTextStyle": "light",
