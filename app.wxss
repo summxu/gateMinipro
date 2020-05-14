@@ -42,3 +42,14 @@
   top: unset;
   bottom: 8px;
 }
+
+.picker {
+  max-width: 200rpx;
+}
+
+/* 一行折叠 */
+.one-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}

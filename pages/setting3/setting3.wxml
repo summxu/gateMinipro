@@ -1,0 +1,80 @@
+<!-- pages/setting3/setting3.wxml -->
+<view class="container">
+  <mp-toptips ext-class="toptip-custom" msg="{{topTipMsg}}" type="info" show="{{toptipShow}}"></mp-toptips>
+  <mp-toptips ext-class="toptip-custom" msg="{{topTipMsg}}" type="error" show="{{errorShow}}"></mp-toptips>
+  <mp-cells class="cells-custom">
+    <!-- D0 -->
+    <mp-cell ext-class="cell-custom" title="{{language.setting3.label1}}">
+      <picker bindchange="changeYesOrNo" data-field="D0" value="{{form.D0}}" range="{{d0Range}}">
+        <view class="picker one-line">{{d0Range[form.D0]}}</view>
+      </picker>
+      <view slot="footer" class="weui-vcode-btn">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D0" bind:tap="saveFun">保存</a>
+        <a data-page="setting3" data-key="topTip1" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+        </a>
+      </view>
+    </mp-cell>
+    <!-- D1 -->
+    <mp-cell ext-class="cell-custom" title="{{language.setting3.label2}}">
+      <picker bindchange="changeYesOrNo" data-field="D1" value="{{form.D1}}" range="{{d1Range}}">
+        <view class="picker">{{d1Range[form.D1]}}</view>
+      </picker>
+      <view slot="footer" class="weui-vcode-btn">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D1" bind:tap="saveFun">保存</a>
+        <a data-page="setting3" data-key="topTip2" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+        </a>
+      </view>
+    </mp-cell>
+    <!-- D2 -->
+    <mp-cell ext-class="cell-custom" title="{{language.setting3.label3}}">
+      <picker bindchange="changeYesOrNo" data-field="D2" value="{{form.D2}}" range="{{d2Range}}">
+        <view class="picker">{{d2Range[form.D2]}}</view>
+      </picker>
+      <view slot="footer" class="weui-vcode-btn">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D2" bind:tap="saveFun">保存</a>
+        <a data-page="setting3" data-key="topTip3" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+        </a>
+      </view>
+    </mp-cell>
+    <!-- D3 -->
+    <mp-cell ext-class="cell-custom" title="{{language.setting3.label4}}">
+      <picker bindchange="changeYesOrNo" data-field="D3" value="{{form.D3}}" range="{{levels}}">
+        <view class="picker">{{levels[form.D3]}}</view>
+      </picker>
+      <view slot="footer" class="weui-vcode-btn">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="FA" bind:tap="saveFun">保存</a>
+        <a data-page="setting3" data-key="topTip4" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+        </a>
+      </view>
+    </mp-cell>
+    <!-- D4 -->
+    <mp-cell ext-class="cell-custom" title="{{language.setting3.label5}}">
+      <picker bindchange="changeYesOrNo" data-field="D4" value="{{form.D4}}" range="{{d4Range}}">
+        <view class="picker">{{d4Range[form.D4]}}</view>
+      </picker>
+      <view slot="footer" class="weui-vcode-btn">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D4" bind:tap="saveFun">保存</a>
+        <a data-page="setting3" data-key="topTip5" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+        </a>
+      </view>
+    </mp-cell>
+    <!-- D5 -->
+    <mp-cell ext-class="cell-custom" title="{{language.setting3.label6}}">
+      <picker bindchange="changeYesOrNo" data-field="D5" value="{{form.D5}}" range="{{d5Range}}">
+        <view class="picker">{{d5Range[form.D5]}}</view>
+      </picker>
+      <view slot="footer" class="weui-vcode-btn">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D5" bind:tap="saveFun">保存</a>
+        <a data-page="setting3" data-key="topTip6" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+        </a>
+      </view>
+    </mp-cell>
+  </mp-cells>
+  <!-- <button bindtap="logOut">退出登录</button> -->
+</view>

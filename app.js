@@ -15,7 +15,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    content: '01020304050203010003020002011516171819202122'
+    content: '01020304050203010003020002010203010003020100'
   },
   getContentToJson () {
     var arr = []
