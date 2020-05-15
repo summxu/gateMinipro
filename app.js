@@ -65,7 +65,7 @@ App({
     return tempJson
   },
   // 写入数据
-  writeBLECharacteristicValue (a, b) {
+  writeBLECharacteristicValue (a, b, isTiaoshi) {
     // 向蓝牙设备发送4字节的数据
     // 分别为 产品序列编号 命令号 内容 异或校验
     const deviceHex = 0x01 // 设备代码
@@ -78,11 +78,11 @@ App({
       ab2hex(hexStringToArrayBuffer(b)).substring(2, 4) +
       ab2hex(hexStringToArrayBuffer(checkByteString)).substring(2, 4)
 
-    // 写入服务
+    // 写入服务 ， 调试模式是写入第一个服务 ， 有可能第一个第二个顺序会改变
     wx.writeBLECharacteristicValue({
-      deviceId: this.globalData.wchs[1].deviceId,
-      serviceId: this.globalData.wchs[1].serviceId,
-      characteristicId: this.globalData.wchs[1].characteristicId,
+      deviceId: isTiaoshi ? this.globalData.wchs[0].deviceId : this.globalData.wchs[1].deviceId,
+      serviceId: isTiaoshi ? this.globalData.wchs[0].deviceId : this.globalData.wchs[1].serviceId,
+      characteristicId: isTiaoshi ? this.globalData.wchs[0].deviceId : this.globalData.wchs[1].characteristicId,
       value: hexStringToArrayBuffer(value),
       success: (res) => {
         wx.showToast({

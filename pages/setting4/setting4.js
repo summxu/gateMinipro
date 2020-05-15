@@ -41,8 +41,17 @@ Page({
   // 操作
   optionFun (event) {
     const field = event.currentTarget.dataset.field
-    console.log('0x' + field, '0x00')
-    app.writeBLECharacteristicValue('0x' + field, '0x' + tempStr)
+    const alert = event.currentTarget.dataset.alert
+    wx.showModal({
+      title: '提示',
+      content: alert,
+      success (res) {
+        if (res.confirm) {
+          console.log('0x' + field, '0x00')
+          app.writeBLECharacteristicValue('0x' + field, '0x' + tempStr, true)
+        }
+      }
+    })
   },
   // 退出断开连接
   logOut () {
