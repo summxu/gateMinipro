@@ -1,6 +1,16 @@
 export default {
   'zh_cn': {
     'language': '简体中文',
+    'devices': {
+      'PedestrianGate_1': '翼闸',
+      'PedestrianGate_2': '摆闸',
+      'PedestrianGate_3': '速通门',
+      'PedestrianGate_4': '三辊闸',
+      'PedestrianGate_5': '广告门',
+      'PedestrianGate_6': '升降柱',
+      'PedestrianGate_7': '全高转闸',
+      'PedestrianGate_8': '圆柱摆闸'
+    },
     'setting1': {
       'label1': '出入口开启时长',
       'label2': '延时开闸时间',

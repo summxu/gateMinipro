@@ -29,8 +29,8 @@
     </mp-cell>
     <!-- F9 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting2.label3}}">
-      <picker bindchange="changeYesOrNo" data-field="F9" value="{{form.F9}}" range="{{sounds}}">
-        <view class="picker">{{sounds[form.F9]}}</view>
+      <picker bindchange="changeYesOrNo" data-field="F9" value="{{form.F9+1}}" range="{{sounds}}">
+        <view class="picker">{{sounds[form.F9]+1}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
         <a class="weui-btn weui-btn_mini weui-btn_default" data-field="F9" bind:tap="saveFun">保存</a>
@@ -41,8 +41,8 @@
     </mp-cell>
     <!-- FA -->
     <mp-cell ext-class="cell-custom" title="{{language.setting2.label4}}">
-      <picker bindchange="changeYesOrNo" data-field="FA" value="{{form.FA}}" range="{{sounds}}">
-        <view class="picker">{{sounds[form.FA]}}</view>
+      <picker bindchange="changeYesOrNo" data-field="FA" value="{{form.FA+1}}" range="{{sounds}}">
+        <view class="picker">{{sounds[form.FA]+1}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
         <a class="weui-btn weui-btn_mini weui-btn_default" data-field="FA" bind:tap="saveFun">保存</a>
@@ -53,8 +53,8 @@
     </mp-cell>
     <!-- FB -->
     <mp-cell ext-class="cell-custom" title="{{language.setting2.label5}}">
-      <picker bindchange="changeYesOrNo" data-field="FB" value="{{form.FB}}" range="{{sounds}}">
-        <view class="picker">{{sounds[form.FB]}}</view>
+      <picker bindchange="changeYesOrNo" data-field="FB" value="{{form.FB+1}}" range="{{sounds}}">
+        <view class="picker">{{sounds[form.FB]+1}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
         <a class="weui-btn weui-btn_mini weui-btn_default" data-field="FB" bind:tap="saveFun">保存</a>
@@ -65,8 +65,8 @@
     </mp-cell>
     <!-- FC -->
     <mp-cell ext-class="cell-custom" title="{{language.setting2.label6}}">
-      <picker bindchange="changeYesOrNo" data-field="FC" value="{{form.FC}}" range="{{sounds}}">
-        <view class="picker">{{sounds[form.FC]}}</view>
+      <picker bindchange="changeYesOrNo" data-field="FC" value="{{form.FC+1}}" range="{{sounds}}">
+        <view class="picker">{{sounds[form.FC]+1}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
         <a class="weui-btn weui-btn_mini weui-btn_default" data-field="FC" bind:tap="saveFun">保存</a>
@@ -77,8 +77,8 @@
     </mp-cell>
     <!-- FD -->
     <mp-cell ext-class="cell-custom" title="{{language.setting2.label7}}">
-      <picker bindchange="changeYesOrNo" data-field="FD" value="{{form.FD}}" range="{{sounds}}">
-        <view class="picker">{{sounds[form.FD]}}</view>
+      <picker bindchange="changeYesOrNo" data-field="FD" value="{{form.FD+1}}" range="{{sounds}}">
+        <view class="picker">{{sounds[form.FD]+1}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
         <a class="weui-btn weui-btn_mini weui-btn_default" data-field="FD" bind:tap="saveFun">保存</a>

@@ -3,8 +3,7 @@
 import event from '../../utils/event.js'
 import {
   inArray,
-  ab2hex,
-  getDeviceNickName
+  ab2hex
 } from '../../utils/util.js'
 
 const app = getApp()
@@ -124,7 +123,7 @@ Page({
         const data = {}
         const tempDevice = {
           ...device,
-          nickName: getDeviceNickName(device.name || device.localName)
+          nickName: this.language[device.name] // 别名
         }
         if (idx === -1) {
           data[`devices[${foundDevices.length}]`] = tempDevice
