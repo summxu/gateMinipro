@@ -3,8 +3,7 @@
 import event from '../../utils/event.js'
 import {
   inArray,
-  ab2hex,
-  getDeviceNickName
+  ab2hex
 } from '../../utils/util.js'
 
 const app = getApp()
@@ -25,6 +24,13 @@ Page({
     this.setLanguage();
     // 开始搜索蓝牙
     this.openBluetoothAdapter()
+  },
+  onShow: function (options) {
+    wx.showToast({
+      title: '搜索设备...',
+      icon: 'loading',
+      mask: true
+    })
   },
   setLanguage: function () {
     this.setData({
@@ -103,6 +109,7 @@ Page({
   },
   // 对扫描到的设备操作
   onBluetoothDeviceFound () {
+    wx.hideLoading()
     wx.onBluetoothDeviceFound((res) => {
       res.devices.forEach(device => {
         if (!device.name && !device.localName) {
@@ -113,7 +120,7 @@ Page({
         const data = {}
         const tempDevice = {
           ...device,
-          nickName: getDeviceNickName(device.name || device.localName)
+          nickName: this.language[device.name] // 别名
         }
         if (idx === -1) {
           data[`devices[${foundDevices.length}]`] = tempDevice
@@ -170,9 +177,14 @@ Page({
       deviceId,
       serviceId,
       success: (res) => {
+        wx.showToast({
+          title: '加载中...',
+          icon: 'loading',
+          duration: 1500,
+          mask: true
+        })
         console.log('--------特征值获取成功-----------')
         console.log(res)
-        console.log('getBLEDeviceCharacteristics success', res.characteristics)
         for (let i = 0; i < res.characteristics.length; i++) {
           let item = res.characteristics[i]
           if (item.properties.read) {

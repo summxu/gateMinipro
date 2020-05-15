@@ -75,16 +75,10 @@ function hexCharCodeToStr (hexCharCodeStr) {
   return resultStr.join("");
 }
 
-// 获取蓝牙翻译名称
-function getDeviceNickName (deviceName) {
-  return '翼闸'
-}
-
 module.exports = {
   formatTime,
   inArray,
   ab2hex,
   hexStringToArrayBuffer,
-  hexCharCodeToStr,
-  getDeviceNickName
+  hexCharCodeToStr
 }

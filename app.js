@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2020-05-14 18:28:35
- * @LastEditTime: 2020-05-14 19:35:49
+ * @LastEditTime: 2020-05-14 21:39:33
  */
 //app.js
 import locales from './utils/locales.js';
@@ -71,7 +71,7 @@ App({
     return tempJson
   },
   // 写入数据
-  writeBLECharacteristicValue (a, b) {
+  writeBLECharacteristicValue (a, b, isTiaoshi) {
     // 向蓝牙设备发送4字节的数据
     // 分别为 产品序列编号 命令号 内容 异或校验
     const deviceHex = 0x01 // 设备代码
@@ -84,12 +84,29 @@ App({
       ab2hex(hexStringToArrayBuffer(b)).substring(2, 4) +
       ab2hex(hexStringToArrayBuffer(checkByteString)).substring(2, 4)
 
-    // 写入服务
+    // 写入服务 ， 调试模式是写入第一个服务 ， 有可能第一个第二个顺序会改变
     wx.writeBLECharacteristicValue({
-      deviceId: this.data.wchs[1].deviceId,
-      serviceId: this.data.wchs[1].serviceId,
-      characteristicId: this.data.wchs[1].characteristicId,
-      value: hexStringToArrayBuffer(value)
+      deviceId: isTiaoshi ? this.globalData.wchs[0].deviceId : this.globalData.wchs[1].deviceId,
+      serviceId: isTiaoshi ? this.globalData.wchs[0].deviceId : this.globalData.wchs[1].serviceId,
+      characteristicId: isTiaoshi ? this.globalData.wchs[0].deviceId : this.globalData.wchs[1].characteristicId,
+      value: hexStringToArrayBuffer(value),
+      success: (res) => {
+        wx.showToast({
+          title: '操作成功！',  // 标题
+          duration: 800   // 提示窗停留时间，默认1500ms
+        })
+      },
+      fail: (res) => {
+        // 检查报错信息
+        if (res.errCode === 10006) {
+          wx.showToast({
+            title: '写入失败，设备断开连接！',  // 标题
+            icon: 'none',
+            duration: 1500   // 提示窗停留时间，默认1500ms
+          })
+          wx.redirectTo({ url: '../index/index' });
+        }
+      }
     })
 
   }

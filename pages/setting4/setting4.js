@@ -1,3 +1,8 @@
+/*
+ * @Author: Chenxu
+ * @Date: 2020-05-14 18:28:35
+ * @LastEditTime: 2020-05-14 21:34:16
+ */
 // pages/setting2/setting2.js
 import event from '../../utils/event'
 const app = getApp()
@@ -36,10 +41,21 @@ Page({
   // 操作
   optionFun (event) {
     const field = event.currentTarget.dataset.field
-    console.log('0x' + field, '0x00')
+    const alert = event.currentTarget.dataset.alert
+    wx.showModal({
+      title: '提示',
+      content: alert,
+      success (res) {
+        if (res.confirm) {
+          console.log('0x' + field, '0x00')
+          app.writeBLECharacteristicValue('0x' + field, '0x' + tempStr, true)
+        }
+      }
+    })
   },
   // 退出断开连接
   logOut () {
+    wx.closeBluetoothAdapter()
     wx.redirectTo({ url: '../index/index' });
   }
 })
