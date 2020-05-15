@@ -13,7 +13,9 @@ Page({
     language: '',
     languages: ['简体中文', 'English'],
     langIndex: 0,
-    devices: []
+    devices: [],
+    chs: [],
+    wchs: []
   },
   //事件处理函数
   onLoad: function () {
@@ -120,7 +122,7 @@ Page({
         const data = {}
         const tempDevice = {
           ...device,
-          nickName: this.language[device.name] // 别名
+          nickName: this.data.language.devices[device.name] // 别名
         }
         if (idx === -1) {
           data[`devices[${foundDevices.length}]`] = tempDevice
@@ -144,6 +146,8 @@ Page({
           name,
           deviceId,
         })
+        // 链接到设备之后 给全局加上name
+        app.globalData.deviceName = name
         this.getBLEDeviceServices(deviceId)
       }
     })
@@ -164,7 +168,6 @@ Page({
     wx.getBLEDeviceServices({
       deviceId,
       success: (res) => {
-        console.log(res)
         for (let i = 0; i < res.services.length; i++) {
           this.getBLEDeviceCharacteristics(deviceId, res.services[i].uuid)
         }
@@ -187,6 +190,7 @@ Page({
         console.log(res)
         for (let i = 0; i < res.characteristics.length; i++) {
           let item = res.characteristics[i]
+          console.log(item.properties)
           if (item.properties.read) {
             // 读取设备信息 接口读取到的信息需要在 onBLECharacteristicValueChange 方法注册的回调中获取
             wx.readBLECharacteristicValue({

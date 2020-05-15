@@ -5,7 +5,7 @@
   <mp-cells class="cells-custom">
     <!-- D9 -->
     <view class="div-line">
-      <a class="weui-btn weui-btn_default weui-btn_mini btn-left" data-field="D9" bind:tap="optionFun">
+      <a class="weui-btn weui-btn_default weui-btn_mini btn-left" data-alert="确定要初始化?" data-field="D9" bind:tap="optionFun">
         {{language.setting4.label1}}
       </a>
       <a data-page="setting4" data-key="topTip1" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
@@ -14,19 +14,19 @@
     </view>
     <!-- DA -->
     <view class="div-line">
-      <a class="weui-btn btn-left weui-btn_default weui-btn_mini" data-field="DA" data-alert="确定要初始化?" bind:tap="optionFun">
+      <a class="weui-btn btn-left weui-btn_default weui-btn_mini" data-field="DA" data-alert="确定要调换电机运动方向?" bind:tap="optionFun">
         {{language.setting4.label2}}
       </a>
-      <a data-page="setting4" data-key="topTip2" bindtap="showTopTip" data-alert="确定要调换电机运动方向?" class="weui-btn weui-btn_mini weui-btn_default">
+      <a data-page="setting4" data-key="topTip2" bindtap="showTopTip" data-alert="确定校正零位?" class="weui-btn weui-btn_mini weui-btn_default">
         <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
       </a>
     </view>
     <!-- DB -->
     <view class="div-line">
-      <a class="weui-btn  btn-left weui-btn_default weui-btn_mini" data-alert="确定校正零位?" data-field="DB" bind:tap="optionFun">
+      <a class="weui-btn  btn-left weui-btn_default weui-btn_mini" data-alert="确定执行系统测试?" data-field="DB" bind:tap="optionFun">
         {{language.setting4.label3}}
       </a>
-      <a data-page="setting4" data-key="topTip3" bindtap="showTopTip" data-alert="确定执行系统测试?" class="weui-btn weui-btn_mini weui-btn_default">
+      <a data-page="setting4" data-key="topTip3" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
         <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
       </a>
     </view>

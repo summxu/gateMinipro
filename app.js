@@ -7,15 +7,9 @@
 import locales from './utils/locales.js';
 import T from './utils/i18n.js';
 import {
-  inArray,
   ab2hex,
   hexStringToArrayBuffer
 } from './utils/util'
-
-import {
-  ab2hex,
-  hexStringToArrayBuffer
-} from './utils/util.js'
 
 //用 /utils/locales 注册了 locale
 T.registerLocale(locales);
@@ -26,12 +20,12 @@ wx.T = T;
 
 App({
   onLaunch: function () {
-    // 程序启动hook
-    this.openBluetoothAdapter()
+
   },
   globalData: {
     content: '',
-    wchs: []
+    wchs: [],
+    deviceName: ''
   },
   getContentToJson () {
     var arr = []
@@ -70,11 +64,32 @@ App({
 
     return tempJson
   },
+  // 获取deviceCode
+  getDeviceCode (deviceName) {
+    switch (deviceName) {
+      case 'PedestrianGate_8':
+        return 0x08
+      case 'PedestrianGate_7':
+        return 0x07
+      case 'PedestrianGate_6':
+        return 0x06
+      case 'PedestrianGate_5':
+        return 0x05
+      case 'PedestrianGate_4':
+        return 0x04
+      case 'PedestrianGate_3':
+        return 0x03
+      case 'PedestrianGate_2':
+        return 0x02
+      default:
+        return 0x01
+    }
+  },
   // 写入数据
   writeBLECharacteristicValue (a, b, isTiaoshi) {
     // 向蓝牙设备发送4字节的数据
     // 分别为 产品序列编号 命令号 内容 异或校验
-    const deviceHex = 0x01 // 设备代码
+    const deviceHex = this.getDeviceCode(this.globalData.deviceName) // 设备代码
     const deviceHexString = deviceHex.toString(16).length === 1 ? `0x0${deviceHex.toString(16)}` : `0x${deviceHex.toString(16)}`
     const checkByte = (deviceHex ^ a ^ b).toString(16)
     const checkByteString = checkByte.length === 1 ? `0x0${checkByte}` : `0x${checkByte}`
@@ -91,6 +106,7 @@ App({
       characteristicId: isTiaoshi ? this.globalData.wchs[0].deviceId : this.globalData.wchs[1].characteristicId,
       value: hexStringToArrayBuffer(value),
       success: (res) => {
+        console.log(value)
         wx.showToast({
           title: '操作成功！',  // 标题
           duration: 800   // 提示窗停留时间，默认1500ms

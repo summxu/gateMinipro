@@ -48,14 +48,14 @@ Page({
       success (res) {
         if (res.confirm) {
           console.log('0x' + field, '0x00')
-          app.writeBLECharacteristicValue('0x' + field, '0x' + tempStr, true)
+          app.writeBLECharacteristicValue('0x' + field, '0x00', true)
         }
       }
     })
   },
   // 退出断开连接
   logOut () {
-    wx.closeBluetoothAdapter()
     wx.redirectTo({ url: '../index/index' });
+    wx.closeBluetoothAdapter()
   }
 })
