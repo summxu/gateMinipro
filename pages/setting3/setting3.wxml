@@ -5,8 +5,8 @@
   <mp-cells class="cells-custom">
     <!-- D0 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting3.label1}}">
-      <picker bindchange="changeYesOrNo" data-field="D0" value="{{form.D0}}" range="{{d0Range}}">
-        <view class="picker one-line">{{d0Range[form.D0]}}</view>
+      <picker bindchange="changeYesOrNo" data-field="D0" value="{{form.D0 - 1}}" range="{{d0Range}}">
+        <view class="picker one-line">{{d0Range[form.D0 - 1]}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
         <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D0" bind:tap="saveFun">
@@ -19,8 +19,8 @@
     </mp-cell>
     <!-- D1 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting3.label2}}">
-      <picker bindchange="changeYesOrNo" data-field="D1" value="{{form.D1}}" range="{{d1Range}}">
-        <view class="picker">{{d1Range[form.D1]}}</view>
+      <picker bindchange="changeYesOrNo" data-field="D1" value="{{form.D1 - 1}}" range="{{d1Range}}">
+        <view class="picker">{{d1Range[form.D1 - 1]}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
         <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D1" bind:tap="saveFun">
@@ -33,8 +33,8 @@
     </mp-cell>
     <!-- D2 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting3.label3}}">
-      <picker bindchange="changeYesOrNo" data-field="D2" value="{{form.D2}}" range="{{d2Range}}">
-        <view class="picker">{{d2Range[form.D2]}}</view>
+      <picker bindchange="changeYesOrNo" data-field="D2" value="{{form.D2 - 1}}" range="{{d2Range}}">
+        <view class="picker">{{d2Range[form.D2 - 1]}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
         <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D2" bind:tap="saveFun">
@@ -47,8 +47,8 @@
     </mp-cell>
     <!-- D3 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting3.label4}}">
-      <picker bindchange="changeYesOrNo" data-field="D3" value="{{form.D3}}" range="{{levels}}">
-        <view class="picker">{{levels[form.D3]}}</view>
+      <picker bindchange="changeYesOrNo" data-field="D3" value="{{form.D3 - 1}}" range="{{levels}}">
+        <view class="picker">{{levels[form.D3 - 1]}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
         <a class="weui-btn weui-btn_mini weui-btn_default" data-field="FA" bind:tap="saveFun">
@@ -61,8 +61,8 @@
     </mp-cell>
     <!-- D4 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting3.label5}}">
-      <picker bindchange="changeYesOrNo" data-field="D4" value="{{form.D4}}" range="{{d4Range}}">
-        <view class="picker">{{d4Range[form.D4]}}</view>
+      <picker bindchange="changeYesOrNo" data-field="D4" value="{{form.D4 - 1}}" range="{{d4Range}}">
+        <view class="picker">{{d4Range[form.D4 - 1]}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
         <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D4" bind:tap="saveFun">
@@ -75,8 +75,8 @@
     </mp-cell>
     <!-- D5 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting3.label6}}">
-      <picker bindchange="changeYesOrNo" data-field="D5" value="{{form.D5}}" range="{{d5Range}}">
-        <view class="picker">{{d5Range[form.D5]}}</view>
+      <picker bindchange="changeYesOrNo" data-field="D5" value="{{form.D5 - 1}}" range="{{d5Range}}">
+        <view class="picker">{{d5Range[form.D5 - 1]}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
         <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D5" bind:tap="saveFun">

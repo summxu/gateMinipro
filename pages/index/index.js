@@ -69,6 +69,11 @@ Page({
       },
       fail: (res) => {
         if (res.errCode === 10001) {
+          wx.showModal({
+            title: '提示',
+            content: '蓝牙未开启，请打开蓝牙',
+            showCancel: false
+          })
           wx.onBluetoothAdapterStateChange(function (res) {
             console.log('onBluetoothAdapterStateChange', res)
             if (res.available) {
@@ -176,16 +181,16 @@ Page({
   },
   // 获取设备特征块  12个可读 2个可写
   getBLEDeviceCharacteristics (deviceId, serviceId) {
+    wx.showToast({
+      title: '加载中...',
+      icon: 'loading',
+      duration: 1500,
+      mask: true
+    })
     wx.getBLEDeviceCharacteristics({
       deviceId,
       serviceId,
       success: (res) => {
-        wx.showToast({
-          title: '加载中...',
-          icon: 'loading',
-          duration: 1500,
-          mask: true
-        })
         console.log('--------特征值获取成功-----------')
         console.log(res)
         for (let i = 0; i < res.characteristics.length; i++) {

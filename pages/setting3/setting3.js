@@ -48,17 +48,6 @@ Page({
     this.setData({
       form: {
         ...this.data.form,
-        [key]: value
-      }
-    })
-  },
-  // 修改等级
-  changeLevel (event) {
-    let value = event.detail.value;
-    const key = event.currentTarget.dataset.field
-    this.setData({
-      form: {
-        ...this.data.form,
         [key]: Number(value) + 1
       }
     })

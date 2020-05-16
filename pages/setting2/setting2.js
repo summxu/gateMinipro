@@ -17,7 +17,7 @@ Page({
     topTipMsg: '',
     form: {},
     levels: [1, 2, 3, 4, 5],
-    yesOrNo: ['否', '是'],
+    yesOrNo: ['是', '否'],
     sounds: ['取消声音', '欢迎光临', '一路顺风', '请进']
   },
 
@@ -39,17 +39,6 @@ Page({
   },
   // picker 是否
   changeYesOrNo (event) {
-    let value = event.detail.value;
-    const key = event.currentTarget.dataset.field
-    this.setData({
-      form: {
-        ...this.data.form,
-        [key]: value
-      }
-    })
-  },
-  // 修改等级
-  changeLevel (event) {
     let value = event.detail.value;
     const key = event.currentTarget.dataset.field
     this.setData({
