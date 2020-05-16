@@ -9,7 +9,9 @@
         <view class="picker one-line">{{d0Range[form.D0]}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D0" bind:tap="saveFun">保存</a>
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D0" bind:tap="saveFun">
+          {{language.save}}
+        </a>
         <a data-page="setting3" data-key="topTip1" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
           <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
         </a>
@@ -21,7 +23,9 @@
         <view class="picker">{{d1Range[form.D1]}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D1" bind:tap="saveFun">保存</a>
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D1" bind:tap="saveFun">
+          {{language.save}}
+        </a>
         <a data-page="setting3" data-key="topTip2" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
           <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
         </a>
@@ -33,7 +37,9 @@
         <view class="picker">{{d2Range[form.D2]}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D2" bind:tap="saveFun">保存</a>
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D2" bind:tap="saveFun">
+          {{language.save}}
+        </a>
         <a data-page="setting3" data-key="topTip3" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
           <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
         </a>
@@ -45,7 +51,9 @@
         <view class="picker">{{levels[form.D3]}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="FA" bind:tap="saveFun">保存</a>
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="FA" bind:tap="saveFun">
+          {{language.save}}
+        </a>
         <a data-page="setting3" data-key="topTip4" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
           <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
         </a>
@@ -57,7 +65,9 @@
         <view class="picker">{{d4Range[form.D4]}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D4" bind:tap="saveFun">保存</a>
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D4" bind:tap="saveFun">
+          {{language.save}}
+        </a>
         <a data-page="setting3" data-key="topTip5" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
           <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
         </a>
@@ -69,7 +79,9 @@
         <view class="picker">{{d5Range[form.D5]}}</view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D5" bind:tap="saveFun">保存</a>
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D5" bind:tap="saveFun">
+          {{language.save}}
+        </a>
         <a data-page="setting3" data-key="topTip6" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
           <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
         </a>

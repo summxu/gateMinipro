@@ -18,14 +18,16 @@
   <!-- <button bindtap="openBluetoothAdapter">开始扫描</button>
     <button bindtap="stopBluetoothDevicesDiscovery">停止扫描</button>
     <button bindtap="closeBluetoothAdapter">结束流程</button> -->
-  <view wx:if="{{devices.length}}" class="devices_summary">已发现 {{devices.length}} 个外围设备：</view>
+  <view wx:if="{{devices.length}}" class="devices_summary">
+    {{language.index1}} {{devices.length}} {{language.index2}}：
+  </view>
   <scroll-view class="device_list" scroll-y scroll-with-animation>
     <view wx:for="{{devices}}" wx:key="index" data-device-id="{{item.deviceId}}" data-name="{{item.nickName || item.localName || item.localName}}" bindtap="createBLEConnection" class="device_item" hover-class="device_item_hover">
       <view style="font-size: 16px; color: #333;">
         {{item.nickName || item.localName || item.localName}}
       </view>
       <view style="font-size: 10px">
-        信号强度: {{item.RSSI}}dBm ({{utils.max(0, item.RSSI + 100)}}%)
+        {{language.index3}}: {{item.RSSI}}dBm ({{utils.max(0, item.RSSI + 100)}}%)
       </view>
       <!-- <view style="font-size: 10px">UUID: {{item.deviceId}}</view> -->
       <!-- <view style="font-size: 10px">Service数量: {{utils.len(item.advertisServiceUUIDs)}}</view> -->
@@ -33,8 +35,8 @@
   </scroll-view>
   <view class="connected_info" wx:if="{{connected}}">
     <view wx:for="{{chs}}" wx:key="index" style="font-size: 12px; margin-top: 10px;">
-      <view>特性UUID: {{item.uuid}}</view>
-      <view>特性值: {{item.value}}</view>
+      <view>{{language.index4}}: {{item.uuid}}</view>
+      <view>{{language.index5}}: {{item.value}}</view>
     </view>
   </view>
 </view>
