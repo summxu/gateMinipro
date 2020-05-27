@@ -11,7 +11,7 @@
           {{language.save}}
         </a>
         <a data-page="setting1" data-key="topTip1" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
-          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+          <mp-icon icon="help" color="black" size="{{18}}"></mp-icon>
         </a>
       </view>
     </mp-cell>
@@ -24,7 +24,7 @@
           {{language.save}}
         </a>
         <a data-page="setting1" data-key="topTip2" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
-          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+          <mp-icon icon="help" color="black" size="{{18}}"></mp-icon>
         </a>
       </view>
     </mp-cell>
@@ -37,63 +37,75 @@
           {{language.save}}
         </a>
         <a data-page="setting1" data-key="topTip3" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
-          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+          <mp-icon icon="help" color="black" size="{{18}}"></mp-icon>
         </a>
       </view>
     </mp-cell>
     <!-- F3 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting1.label4}}">
       <picker bindchange="changeLevel" data-field="F3" value="{{form.F3 - 1}}" range="{{levels}}">
-        <view class="picker">第 {{levels[form.F3 - 1]}} 级</view>
+        <view class="picker">
+          第 {{levels[form.F3 - 1]}} 级
+          <view class="picker-down"></view>
+        </view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
         <a class="weui-btn weui-btn_mini weui-btn_default" data-field="F3" bind:tap="saveFun">
           {{language.save}}
         </a>
         <a data-page="setting1" data-key="topTip4" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
-          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+          <mp-icon icon="help" color="black" size="{{18}}"></mp-icon>
         </a>
       </view>
     </mp-cell>
     <!-- F4 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting1.label5}}">
       <picker bindchange="changeLevel" data-field="F4" value="{{form.F4 - 1}}" range="{{levels}}">
-        <view class="picker">第 {{levels[form.F4 - 1]}} 级</view>
+        <view class="picker">
+          第 {{levels[form.F4 - 1]}} 级
+          <view class="picker-down"></view>
+        </view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
         <a class="weui-btn weui-btn_mini weui-btn_default" data-field="F4" bind:tap="saveFun">
           {{language.save}}
         </a>
         <a data-page="setting1" data-key="topTip5" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
-          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+          <mp-icon icon="help" color="black" size="{{18}}"></mp-icon>
         </a>
       </view>
     </mp-cell>
     <!-- F5 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting1.label6}}">
       <picker bindchange="changeLevel" data-field="F5" value="{{form.F5 - 1}}" range="{{levels}}">
-        <view class="picker">第 {{levels[form.F5 - 1]}} 级</view>
+        <view class="picker">
+          第 {{levels[form.F5 - 1]}} 级
+          <view class="picker-down"></view>
+        </view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
         <a class="weui-btn weui-btn_mini weui-btn_default" data-field="F5" bind:tap="saveFun">
           {{language.save}}
         </a>
         <a data-page="setting1" data-key="topTip6" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
-          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+          <mp-icon icon="help" color="black" size="{{18}}"></mp-icon>
         </a>
       </view>
     </mp-cell>
     <!-- F6 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting1.label7}}">
       <picker bindchange="changeLevel" data-field="F6" value="{{form.F6 - 1}}" range="{{levels}}">
-        <view class="picker">第 {{levels[form.F6 - 1]}} 级</view>
+        <view class="picker">
+          第 {{levels[form.F6 - 1]}} 级
+          <view class="picker-down"></view>
+        </view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
         <a class="weui-btn weui-btn_mini weui-btn_default" data-field="F6" bind:tap="saveFun">
           {{language.save}}
         </a>
         <a data-page="setting1" data-key="topTip7" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
-          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+          <mp-icon icon="help" color="black" size="{{18}}"></mp-icon>
         </a>
       </view>
     </mp-cell>

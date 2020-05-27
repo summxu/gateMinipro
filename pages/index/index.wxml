@@ -12,7 +12,10 @@
   <view class="userinfo">
     <!-- 语言选择 -->
     <picker bindchange="bindPickerChange" bindchange="changeLanguage" value="{{langIndex}}" range="{{languages}}">
-      <view class="picker-languages">{{languages[langIndex]}}</view>
+      <view class="picker-languages">
+        {{languages[langIndex]}}
+        <view class="picker-down"></view>
+      </view>
     </picker>
   </view>
   <!-- <button bindtap="openBluetoothAdapter">开始扫描</button>

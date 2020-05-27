@@ -24,8 +24,9 @@
 }
 
 .cells-custom .weui-cell__hd {
-  font-size: 26rpx;
-  min-width: 200rpx;
+  font-size  : 26rpx;
+  min-width  : 200rpx;
+  font-weight: 700;
 }
 
 .cell-custom .weui-input,
@@ -35,9 +36,10 @@
 
 
 .cell-custom .danwei {
-  position: absolute;
-  left    : -60rpx;
-  z-index : 6657;
+  position : absolute;
+  font-size: 26rpx;
+  left     : -60rpx;
+  z-index  : 6657;
 }
 
 /* 按钮样式 */
@@ -56,7 +58,8 @@
 
 
 .weui-vcode-btn {
-  padding: 0;
+  padding     : 0;
+  padding-left: 15rpx;
 }
 
 .log-out {
