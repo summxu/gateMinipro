@@ -114,5 +114,7 @@
       </view>
     </mp-cell>
   </mp-cells>
-  <!-- <button bindtap="logOut">退出登录</button> -->
+  <button class="log-out weui-btn weui-btn_default " bindtap="logOut" type="warn">
+    {{language.connect}}
+  </button>
 </view>

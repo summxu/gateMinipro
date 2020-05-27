@@ -64,5 +64,7 @@
 }
 
 .log-out {
-  margin-top: 40rpx;
+  width: 90%!important;
+  position: fixed;
+  bottom: 20px;
 }

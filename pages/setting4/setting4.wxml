@@ -40,5 +40,7 @@
       </a>
     </view>
   </mp-cells>
-  <button class="log-out" bindtap="logOut" type="warn">{{language.connect}}</button>
+  <button class="log-out weui-btn weui-btn_default " bindtap="logOut" type="warn">
+    {{language.connect}}
+  </button>
 </view>

@@ -1,15 +1,18 @@
 //logs.js
-const util = require('../../utils/util.js')
 
 Page({
   data: {
-    logs: []
+    index: 1,
+    list: [{
+      "text": "对话",
+    },
+    {
+      "text": "设置",
+    }]
   },
-  onLoad: function () {
-    this.setData({
-      logs: (wx.getStorageSync('logs') || []).map(log => {
-        return util.formatTime(new Date(log))
-      })
-    })
-  }
+  tabChange (e) {
+    const index = e.detail.index
+    console.log('tab change', e)
+  },
+  onLoad: function () { }
 })

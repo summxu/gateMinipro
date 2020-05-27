@@ -1,8 +1,14 @@
-.log-list {
-  display: flex;
-  flex-direction: column;
-  padding: 40rpx;
+.weui-tabbar__item {
+  height: 50rpx;
+  position: relative;
 }
-.log-item {
-  margin: 10rpx;
+
+.weui-tabbar__label {
+  font-size: 32rpx;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  line-height: 85rpx;
+  width: 100%;
+  text-align: center;
 }

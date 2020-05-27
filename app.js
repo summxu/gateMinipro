@@ -23,7 +23,8 @@ App({
 
   },
   globalData: {
-    content: '',
+    content: '01010101010101010101010101010101010101010101',
+    // content: '',
     wchs: [],
     deviceName: ''
   },
