@@ -113,6 +113,21 @@
         </a>
       </view>
     </mp-cell>
+    <!-- 断电开闸，设置三移过来的 -->
+    <!-- D5 -->
+    <mp-cell ext-class="cell-custom" title="{{language.setting3.label6}}">
+      <picker bindchange="changeYesOrNo" data-field="D5" value="{{form.D5 - 1}}" range="{{d5Range}}">
+        <view class="picker">{{d5Range[form.D5 - 1]}}</view>
+      </picker>
+      <view slot="footer" class="weui-vcode-btn">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D5" bind:tap="saveFun">
+          {{language.save}}
+        </a>
+        <a data-page="setting3" data-key="topTip6" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+        </a>
+      </view>
+    </mp-cell>
   </mp-cells>
   <button class="log-out weui-btn weui-btn_default " bindtap="logOut" type="warn">
     {{language.connect}}

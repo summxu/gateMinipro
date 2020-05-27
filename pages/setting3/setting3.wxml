@@ -62,28 +62,17 @@
     <!-- D4 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting3.label5}}">
       <picker bindchange="changeYesOrNo" data-field="D4" value="{{form.D4 - 1}}" range="{{d4Range}}">
-        <view class="picker">{{d4Range[form.D4 - 1]}}</view>
+        <view class="picker">
+          {{d4Range[form.D4 - 1]}}
+          <view class="picker-down"></view>
+        </view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
         <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D4" bind:tap="saveFun">
           {{language.save}}
         </a>
         <a data-page="setting3" data-key="topTip5" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
-          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
-        </a>
-      </view>
-    </mp-cell>
-    <!-- D5 -->
-    <mp-cell ext-class="cell-custom" title="{{language.setting3.label6}}">
-      <picker bindchange="changeYesOrNo" data-field="D5" value="{{form.D5 - 1}}" range="{{d5Range}}">
-        <view class="picker">{{d5Range[form.D5 - 1]}}</view>
-      </picker>
-      <view slot="footer" class="weui-vcode-btn">
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D5" bind:tap="saveFun">
-          {{language.save}}
-        </a>
-        <a data-page="setting3" data-key="topTip6" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
-          <mp-icon icon="help" color="black" size="{{22}}"></mp-icon>
+          <mp-icon icon="help" color="black" size="{{18}}"></mp-icon>
         </a>
       </view>
     </mp-cell>

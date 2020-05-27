@@ -1,57 +1,101 @@
 /**app.wxss**/
 @import '/miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  /* padding: 200rpx 0; */
-  box-sizing: border-box;
-} 
 
+.container {
+  height         : 100%;
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  justify-content: space-between;
+  /* padding     : 200rpx 0; */
+  box-sizing     : border-box;
+}
+
+/* 行样式 */
 .cells-custom {
   width: 100% !important;
 }
+
 .cell-custom {
-  font-size: 32rpx;
-  padding: 0 30rpx;
+  font-size    : 30rpx;
+  padding      : 0 30rpx;
+  padding-right: 15rpx;
+  height       : 45px;
 }
+
 .cells-custom .weui-cell__hd {
-  font-size: 28rpx;
+  font-size: 26rpx;
   min-width: 200rpx;
 }
-.cell-custom .weui-input,.picker {
+
+.cell-custom .weui-input,
+.picker {
   padding-left: 20rpx;
 }
-.cell-custom .weui-btn {
-  background-color: rgba(0,0,0,0);
-  height: 100%;
-  line-height: 110rpx;
-}
+
+
 .cell-custom .danwei {
   position: absolute;
-  left: -60rpx;
-  z-index: 6657;
+  left    : -60rpx;
+  z-index : 6657;
 }
+
+/* 按钮样式 */
 .weui-btn+.weui-btn {
   margin: 0;
 }
 
+.cell-custom .weui-btn {
+  background-color: rgba(0, 0, 0, 0);
+  margin-top      : 6px;
+  height          : 45px;
+  line-height     : 45px;
+  padding         : 0 15rpx;
+  font-size       : 28rpx;
+}
+
+
+.weui-vcode-btn {
+  padding: 0;
+}
+
+.log-out {
+  width   : 90% !important;
+  position: fixed;
+  bottom  : 20px;
+}
+
+/* 提示按钮样式 */
 .toptip-custom {
-  top: unset;
+  top   : unset;
   bottom: 8px;
 }
 
+/* 选择器样式 */
 .picker {
-  max-width: 200rpx;
+  max-width: 300rpx;
+  font-size: 26rpx;
+  position : relative;
+}
+
+.picker-down {
+  display     : inline-block;
+  position    : absolute;
+  right       : 0;
+  top         : 50%;
+  transform   : translate(0, -20%);
+  width       : 0;
+  height      : 0;
+  border-width: 10rpx;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
 }
 
 /* 一行折叠 */
 .one-line {
-  overflow: hidden;
+  overflow     : hidden;
   text-overflow: ellipsis;
-  white-space: nowrap
+  white-space  : nowrap
 }
 
 .div-line {
@@ -60,11 +104,5 @@
 
 .div-line .btn-left {
   margin-right: 30rpx;
-  width: 400rpx;
-}
-
-.log-out {
-  width: 90%!important;
-  position: fixed;
-  bottom: 20px;
+  width       : 400rpx;
 }
