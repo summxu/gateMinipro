@@ -3,7 +3,9 @@
 import event from '../../utils/event.js'
 import {
   inArray,
-  ab2hex
+  ab2hex,
+  filterSort,
+  onlyFilter
 } from '../../utils/util.js'
 
 const app = getApp()
@@ -98,10 +100,10 @@ Page({
   },
   // 搜索蓝牙
   startBluetoothDevicesDiscovery () {
-    if (this._discoveryStarted) {
-      return
-    }
-    this._discoveryStarted = true
+    // if (this._discoveryStarted) {
+    //   return
+    // }
+    // this._discoveryStarted = true
     wx.startBluetoothDevicesDiscovery({
       allowDuplicatesKey: true,
       success: (res) => {
@@ -134,7 +136,13 @@ Page({
         } else {
           data[`devices[${idx}]`] = tempDevice
         }
-        this.setData(data)
+        if (onlyFilter(tempDevice.name) !== -1) {
+          this.setData(data)
+        }
+        // 筛选并排序设备
+        this.setData({
+          devices: filterSort(this.data.devices)
+        })
       })
     })
   },
@@ -274,6 +282,6 @@ Page({
 
   closeBluetoothAdapter () {
     wx.closeBluetoothAdapter()
-    this._discoveryStarted = false
-  },
+    // this._discoveryStarted = false
+  }
 })

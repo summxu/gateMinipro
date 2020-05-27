@@ -75,10 +75,33 @@ function hexCharCodeToStr (hexCharCodeStr) {
   return resultStr.join("");
 }
 
+// 筛选
+function onlyFilter (deviceName) {
+  var okArr = []  // 预设名字的数组
+  for (let index = 0; index < 7; index++) {
+    okArr.push(`PedestrianGate_${index + 1}`)
+  }
+  return okArr.findIndex(item => deviceName)
+}
+
+// 筛选并排序设备
+function filterSort (devices) {
+  var okArr = []  // 预设名字的数组
+  for (let index = 0; index < 7; index++) {
+    okArr.push(`PedestrianGate_${index + 1}`)
+  }
+
+  return devices
+    .filter(element => okArr.findIndex(item => item === element.name) !== -1)
+    .sort((a, b) => b.RSSI - a.RSSI)
+}
+
 module.exports = {
   formatTime,
   inArray,
   ab2hex,
   hexStringToArrayBuffer,
-  hexCharCodeToStr
+  hexCharCodeToStr,
+  filterSort,
+  onlyFilter
 }

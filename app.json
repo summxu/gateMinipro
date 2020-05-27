@@ -1,16 +1,16 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/setting3/setting3",
     "pages/setting4/setting4",
     "pages/setting1/setting1",
-    "pages/index/index",
     "pages/setting2/setting2"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#3E51B4",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#91979b",

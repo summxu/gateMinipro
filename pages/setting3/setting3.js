@@ -93,5 +93,6 @@ Page({
   // 退出断开连接
   logOut () {
     wx.redirectTo({ url: '../index/index' });
+    wx.closeBluetoothAdapter()
   }
 })

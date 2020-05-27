@@ -12,10 +12,7 @@
   <view class="userinfo">
     <!-- 语言选择 -->
     <picker bindchange="bindPickerChange" bindchange="changeLanguage" value="{{langIndex}}" range="{{languages}}">
-      <view class="picker-languages">
-        {{languages[langIndex]}}
-        <view class="picker-down"></view>
-      </view>
+      <view class="picker-languages">{{languages[langIndex]}}</view>
     </picker>
   </view>
   <!-- <button bindtap="openBluetoothAdapter">开始扫描</button>
@@ -30,7 +27,8 @@
         {{item.nickName || item.localName || item.localName}}
       </view>
       <view style="font-size: 10px">
-        {{language.index3}}: {{item.RSSI}}dBm ({{utils.max(0, item.RSSI + 100)}}%)
+        {{language.index3}}: {{item.RSSI}}dBm
+        <!-- ({{utils.max(0, item.RSSI + 100)}}%) -->
       </view>
       <!-- <view style="font-size: 10px">UUID: {{item.deviceId}}</view> -->
       <!-- <view style="font-size: 10px">Service数量: {{utils.len(item.advertisServiceUUIDs)}}</view> -->
