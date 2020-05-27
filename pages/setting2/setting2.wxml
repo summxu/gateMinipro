@@ -3,23 +3,6 @@
   <mp-toptips ext-class="toptip-custom" msg="{{topTipMsg}}" type="info" show="{{toptipShow}}"></mp-toptips>
   <mp-toptips ext-class="toptip-custom" msg="{{topTipMsg}}" type="error" show="{{errorShow}}"></mp-toptips>
   <mp-cells class="cells-custom">
-    <!-- F7 -->
-    <mp-cell ext-class="cell-custom" title="{{language.setting2.label1}}">
-      <picker bindchange="changeYesOrNo" data-field="F7" value="{{form.F7 - 1}}" range="{{yesOrNo}}">
-        <view class="picker">
-          {{yesOrNo[form.F7 - 1 ]}}
-          <view class="picker-down"></view>
-        </view>
-      </picker>
-      <view slot="footer" class="weui-vcode-btn">
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="F7" bind:tap="saveFun">
-          {{language.save}}
-        </a>
-        <a data-page="setting2" data-key="topTip1" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
-          <mp-icon icon="help" color="black" size="{{18}}"></mp-icon>
-        </a>
-      </view>
-    </mp-cell>
     <!-- F8 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting2.label2}}">
       <picker bindchange="changeYesOrNo" data-field="F8" value="{{form.F8 - 1}}" range="{{yesOrNo}}">
@@ -33,6 +16,23 @@
           {{language.save}}
         </a>
         <a data-page="setting2" data-key="topTip2" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+          <mp-icon icon="help" color="black" size="{{18}}"></mp-icon>
+        </a>
+      </view>
+    </mp-cell>
+    <!-- F7 -->
+    <mp-cell ext-class="cell-custom" title="{{language.setting2.label1}}">
+      <picker bindchange="changeYesOrNo" data-field="F7" value="{{form.F7 - 1}}" range="{{yesOrNo}}">
+        <view class="picker">
+          {{yesOrNo[form.F7 - 1 ]}}
+          <view class="picker-down"></view>
+        </view>
+      </picker>
+      <view slot="footer" class="weui-vcode-btn">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="F7" bind:tap="saveFun">
+          {{language.save}}
+        </a>
+        <a data-page="setting2" data-key="topTip1" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
           <mp-icon icon="help" color="black" size="{{18}}"></mp-icon>
         </a>
       </view>
@@ -71,23 +71,6 @@
         </a>
       </view>
     </mp-cell>
-    <!-- FB -->
-    <mp-cell ext-class="cell-custom" title="{{language.setting2.label5}}">
-      <picker bindchange="changeYesOrNo" data-field="FB" value="{{form.FB - 1}}" range="{{sounds}}">
-        <view class="picker">
-          {{sounds[form.FB - 1]}}
-          <view class="picker-down"></view>
-        </view>
-      </picker>
-      <view slot="footer" class="weui-vcode-btn">
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="FB" bind:tap="saveFun">
-          {{language.save}}
-        </a>
-        <a data-page="setting2" data-key="topTip5" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
-          <mp-icon icon="help" color="black" size="{{18}}"></mp-icon>
-        </a>
-      </view>
-    </mp-cell>
     <!-- FC -->
     <mp-cell ext-class="cell-custom" title="{{language.setting2.label6}}">
       <picker bindchange="changeYesOrNo" data-field="FC" value="{{form.FC - 1}}" range="{{sounds}}">
@@ -101,6 +84,23 @@
           {{language.save}}
         </a>
         <a data-page="setting2" data-key="topTip6" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+          <mp-icon icon="help" color="black" size="{{18}}"></mp-icon>
+        </a>
+      </view>
+    </mp-cell>
+    <!-- FB -->
+    <mp-cell ext-class="cell-custom" title="{{language.setting2.label5}}">
+      <picker bindchange="changeYesOrNo" data-field="FB" value="{{form.FB - 1}}" range="{{sounds}}">
+        <view class="picker">
+          {{sounds[form.FB - 1]}}
+          <view class="picker-down"></view>
+        </view>
+      </picker>
+      <view slot="footer" class="weui-vcode-btn">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="FB" bind:tap="saveFun">
+          {{language.save}}
+        </a>
+        <a data-page="setting2" data-key="topTip5" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
           <mp-icon icon="help" color="black" size="{{18}}"></mp-icon>
         </a>
       </view>
