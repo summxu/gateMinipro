@@ -86,7 +86,8 @@ Page({
       return false
     }
     // 判断没有 0 添 0 操作
-    var tempStr = String(this.data.form[field]).length === 1 ? '0' + String(this.data.form[field]) : String(this.data.form[field])
+    var sting16 = Number(this.data.form[field]).toString(16)
+    var tempStr = String(sting16).length === 1 ? '0' + String(sting16) : String(sting16)
     console.log('0x' + field, '0x' + tempStr)
     app.writeBLECharacteristicValue('0x' + field, '0x' + tempStr)
   },
