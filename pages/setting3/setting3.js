@@ -55,13 +55,13 @@ Page({
   // 初始化值
   initForm () {
     var tempJson = app.getContentToJson()
-    for (const key in tempJson) {
-      if (tempJson.hasOwnProperty(key)) {
-        var element = tempJson[key];
-        // 去 0 操作
-        tempJson[key] = element.replace(0, '')
-      }
-    }
+    // for (const key in tempJson) {
+    //   if (tempJson.hasOwnProperty(key)) {
+    //     var element = tempJson[key];
+    //     // 去 0 操作
+    //     tempJson[key] = element.replace(0, '')
+    //   }
+    // }
     this.setData({
       form: tempJson
     })
@@ -92,7 +92,7 @@ Page({
   },
   // 退出断开连接
   logOut () {
-    wx.redirectTo({ url: '../index/index' });
+    wx.reLaunch({ url: '../index/index' });
     wx.closeBluetoothAdapter()
   }
 })

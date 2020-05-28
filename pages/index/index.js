@@ -42,9 +42,7 @@ Page({
     });
   },
   toSetting: function (e) {
-    wx.switchTab({
-      url: '../setting1/setting1',
-    })
+    wx.reLaunch({ url: '../setting2/setting2', })
   },
   // 改变语言
   changeLanguage: function (e) {
@@ -275,6 +273,7 @@ Page({
         // 把内容存入globalData
         app.globalData.content = ab2hex(characteristic.value)
         // 跳转页面
+        console.log(app.getContentToJson());
         this.toSetting()
       }
     })

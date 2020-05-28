@@ -23,8 +23,8 @@ App({
 
   },
   globalData: {
-    content: '01010101010101010101010101010101010101010101',
-    // content: '',
+    // content: '01010101010101010101010101010101010101010101',
+    content: '',
     wchs: [],
     deviceName: ''
   },
@@ -32,7 +32,7 @@ App({
     var arr = []
     for (let index = 0; index < this.globalData.content.length; index += 2) {
       const tempStr = this.globalData.content.substring(index, index + 2)
-      arr.push(tempStr)
+      arr.push(Number('0x' + tempStr))
     }
     // arr 是22 字节的数组，每一项都代表不同属性的值
     var tempJson = {
@@ -124,7 +124,7 @@ App({
             duration: 1500   // 提示窗停留时间，默认1500ms
           })
           setTimeout(() => {
-            wx.redirectTo({ url: '../index/index' });
+            wx.reLaunch({ url: '../index/index' });
           }, 1500);
         }
       }

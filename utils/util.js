@@ -96,6 +96,24 @@ function filterSort (devices) {
     .sort((a, b) => b.RSSI - a.RSSI)
 }
 
+// 获取屏幕高度
+function getScreenHeight (callback) {
+  wx.getSystemInfo({
+    success: function (res) {
+      // 获取可使用窗口宽度
+      let clientHeight = res.windowHeight;
+      // 获取可使用窗口高度
+      let clientWidth = res.windowWidth;
+      // 算出比例
+      let ratio = 750 / clientWidth;
+      // 算出高度(单位rpx)
+      let height = clientHeight * ratio;
+      // 设置高度
+      callback(height)
+    }
+  });
+}
+
 module.exports = {
   formatTime,
   inArray,
@@ -103,5 +121,6 @@ module.exports = {
   hexStringToArrayBuffer,
   hexCharCodeToStr,
   filterSort,
-  onlyFilter
+  onlyFilter,
+  getScreenHeight
 }

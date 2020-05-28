@@ -32,6 +32,8 @@ Page({
     this.setLanguage();	// (1)
     event.on("languageChanged", this, this.setLanguage); // (2)
     this.initForm()
+    // 切换到setting1，这是避免tabbar第二次加载时，试图显示不全的bug
+    wx.switchTab({ url: '../setting1/setting1' })
   },
   setLanguage () {
     this.setData({
@@ -52,13 +54,13 @@ Page({
   // 初始化值
   initForm () {
     var tempJson = app.getContentToJson()
-    for (const key in tempJson) {
-      if (tempJson.hasOwnProperty(key)) {
-        var element = tempJson[key];
-        // 去 0 操作
-        tempJson[key] = element.replace(0, '')
-      }
-    }
+    // for (const key in tempJson) {
+    //   if (tempJson.hasOwnProperty(key)) {
+    //     var element = tempJson[key];
+    //     // 去 0 操作
+    //     tempJson[key] = element.replace(0, '')
+    //   }
+    // }
     this.setData({
       form: tempJson
     })
@@ -89,7 +91,7 @@ Page({
   },
   // 退出断开连接
   logOut () {
-    wx.redirectTo({ url: '../index/index' });
+    wx.reLaunch({ url: '../index/index' });
     wx.closeBluetoothAdapter()
   }
 })
