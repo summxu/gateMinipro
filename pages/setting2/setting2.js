@@ -16,19 +16,18 @@ Page({
     errorShow: false,
     topTipMsg: '',
     form: {},
-    levels: [1, 2, 3, 4, 5],
-    yesOrNo: ['是', '否'],
-    sounds: ['取消声音', '欢迎光临', '一路顺风', '请进'],
-    d5Range: ['断电不开闸', '左开闸', '右开闸']
+    levels: [1, 2, 3, 4, 5]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 设置标题
     wx.setNavigationBarTitle({
       title: app.globalData.deviceName  // 设置页面标题
     })
+
     this.setLanguage();	// (1)
     event.on("languageChanged", this, this.setLanguage); // (2)
     this.initForm()
@@ -39,6 +38,44 @@ Page({
     this.setData({
       language: wx.T.getLanguage()
     });
+
+    // 设置选项语言
+    this.setData({
+      yesOrNo: [
+        wx.T.getLanguage().options.options1,
+        wx.T.getLanguage().options.options2
+      ],
+      sounds: [
+        wx.T.getLanguage().options.options3,
+        wx.T.getLanguage().options.options4,
+        wx.T.getLanguage().options.options5,
+        wx.T.getLanguage().options.options6
+      ],
+      d5Range: [
+        wx.T.getLanguage().options.options7,
+        wx.T.getLanguage().options.options8,
+        wx.T.getLanguage().options.options9
+      ]
+    })
+
+    console.log(wx.T.getLanguage().tabbars)
+    // 设置选项标题
+    wx.setTabBarItem({
+      index: 0,
+      text: wx.T.getLanguage().tabbars.tabbar1,
+    })
+    wx.setTabBarItem({
+      index: 1,
+      text: wx.T.getLanguage().tabbars.tabbar2,
+    })
+    wx.setTabBarItem({
+      index: 2,
+      text: wx.T.getLanguage().tabbars.tabbar3,
+    })
+    wx.setTabBarItem({
+      index: 3,
+      text: wx.T.getLanguage().tabbars.tabbar4,
+    })
   },
   // picker 是否
   changeYesOrNo (event) {

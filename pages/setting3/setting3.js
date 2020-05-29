@@ -16,13 +16,7 @@ Page({
     errorShow: false,
     topTipMsg: '',
     form: {},
-    levels: [3, 4, 5, 6, 7],
-    sounds: ['取消声音', '欢迎光临', '一路顺风', '请进'],
-    d0Range: ['不处理', '只是语音报警', '语音报警并立即关门，通道内有人就不关门', '语音报警并强制关门，不论是否有人', '语音报警并强制关门后 如反向信号撤销，再开门'],
-    d1Range: ['不处理', '只语音报警', '只要防夹信号没人就立即关门', '立即关门，不考虑防夹信号'],
-    d2Range: ['不处理', '防夹反弹', '防夹暂停'],
-    d4Range: ['取消', '左红外开门', '右红外开门'],
-    d5Range: ['中文', '英文', '阿拉伯语']
+    levels: [3, 4, 5, 6, 7]
   },
 
   /**
@@ -40,6 +34,44 @@ Page({
     this.setData({
       language: wx.T.getLanguage()
     });
+
+    // 设置选项语言
+    this.setData({
+      sounds: [
+        wx.T.getLanguage().options.options3,
+        wx.T.getLanguage().options.options4,
+        wx.T.getLanguage().options.options5,
+        wx.T.getLanguage().options.options6
+      ],
+      d0Range: [
+        wx.T.getLanguage().options.options10,
+        wx.T.getLanguage().options.options11,
+        wx.T.getLanguage().options.options12,
+        wx.T.getLanguage().options.options13,
+        wx.T.getLanguage().options.options14
+      ],
+      d1Range: [
+        wx.T.getLanguage().options.options10,
+        wx.T.getLanguage().options.options15,
+        wx.T.getLanguage().options.options16,
+        wx.T.getLanguage().options.options17
+      ],
+      d2Range: [
+        wx.T.getLanguage().options.options10,
+        wx.T.getLanguage().options.options18,
+        wx.T.getLanguage().options.options19
+      ],
+      d4Range: [
+        wx.T.getLanguage().options.options25,
+        wx.T.getLanguage().options.options20,
+        wx.T.getLanguage().options.options21
+      ],
+      d5Range: [
+        wx.T.getLanguage().options.options22,
+        wx.T.getLanguage().options.options23,
+        wx.T.getLanguage().options.options24
+      ]
+    })
   },
   // picker 是否
   changeYesOrNo (event) {

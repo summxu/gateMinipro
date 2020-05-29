@@ -26,6 +26,7 @@ Page({
     wx.setNavigationBarTitle({
       title: app.globalData.deviceName  // 设置页面标题
     })
+
     this.setLanguage();	// (1)
     event.on("languageChanged", this, this.setLanguage); // (2)
     this.initForm()
