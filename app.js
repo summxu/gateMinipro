@@ -58,8 +58,8 @@ App({
       E4: arr[17], // 防夹处理方式
       E5: arr[18], // 红外线对数
       E6: arr[19], // 红外开门设置
-      E7: arr[20]  // “断电开闸设置” 取值范围 0~2
-
+      E7: arr[20],  // “断电开闸设置” 取值范围 0~2
+      E8: arr[21] // 底层喇叭播放的语言，只能有三种 中文 1 ，英文 2 ，第三种语言 3 .当前第三种语言为阿拉伯语
       // 还有一个备用 arr[21]
     }
 
@@ -100,15 +100,17 @@ App({
       ab2hex(hexStringToArrayBuffer(b)).substring(2, 4) +
       ab2hex(hexStringToArrayBuffer(checkByteString)).substring(2, 4)
 
-    console.log(value)
+    console.log(ab2hex(hexStringToArrayBuffer(a)).substring(2, 4))
 
-    // 写入服务 ， 调试模式是写入第一个服务 ， 有可能第一个第二个顺序会改变
+    // 写入服务 ， 调试模式是写入第一个服务 ， 有可能第一个第二个顺序会改变，isTiaoshi 一次只能写入一个字节，操作码
     wx.writeBLECharacteristicValue({
       deviceId: isTiaoshi ? this.globalData.wchs[0].deviceId : this.globalData.wchs[1].deviceId,
       serviceId: isTiaoshi ? this.globalData.wchs[0].serviceId : this.globalData.wchs[1].serviceId,
       characteristicId: isTiaoshi ? this.globalData.wchs[0].characteristicId : this.globalData.wchs[1].characteristicId,
-      value: hexStringToArrayBuffer(value),
+      value: isTiaoshi ? hexStringToArrayBuffer(ab2hex(hexStringToArrayBuffer(a)).substring(2, 4)) : hexStringToArrayBuffer(value),
       success: (res) => {
+        console.log(isTiaoshi ? this.globalData.wchs[0].characteristicId : this.globalData.wchs[1].characteristicId)
+
         wx.showToast({
           title: '操作成功！',  // 标题
           duration: 800   // 提示窗停留时间，默认1500ms

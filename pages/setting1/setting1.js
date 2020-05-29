@@ -83,10 +83,18 @@ Page({
   // 保存
   saveFun (event) {
     const field = event.currentTarget.dataset.field
+    const max = event.currentTarget.dataset.max
     if (!this.data.form[field] || this.data.form[field] == '') {
       this.setData({
         errorShow: true,
         topTipMsg: '写入数据不能为空!'
+      })
+      return false
+    }
+    if (field > max) {
+      this.setData({
+        errorShow: true,
+        topTipMsg: '写入的数据值大小超出范围!'
       })
       return false
     }

@@ -50,7 +50,7 @@ Page({
       content: alert,
       success (res) {
         if (res.confirm) {
-          console.log('0x' + field, '0x00')
+          console.log('0x' + field, '0x01')
           app.writeBLECharacteristicValue('0x' + field, '0x01', true)
         }
       }

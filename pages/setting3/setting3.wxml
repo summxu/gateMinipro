@@ -23,7 +23,7 @@
     <!-- E3 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting3.label2}}">
       <picker bindchange="changeYesOrNo" data-field="E3" value="{{form.E3 - 1}}" range="{{d1Range}}">
-        <view class="picker">
+        <view class="picker one-line">
           {{d1Range[form.E3 - 1]}}
           <view class="picker-down"></view>
         </view>
@@ -40,7 +40,7 @@
     <!-- E4 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting3.label3}}">
       <picker bindchange="changeYesOrNo" data-field="E4" value="{{form.E4 - 1}}" range="{{d2Range}}">
-        <view class="picker">
+        <view class="picker one-line">
           {{d2Range[form.E4 - 1]}}
           <view class="picker-down"></view>
         </view>
@@ -57,13 +57,13 @@
     <!-- E5 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting3.label4}}">
       <picker bindchange="changeYesOrNo" data-field="E5" value="{{form.E5 - 1}}" range="{{levels}}">
-        <view class="picker">
+        <view class="picker one-line">
           {{levels[form.E5 - 1]}}
           <view class="picker-down"></view>
         </view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="FA" bind:tap="saveFun">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="E5" bind:tap="saveFun">
           {{language.save}}
         </a>
         <a data-page="setting3" data-key="topTip4" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
@@ -74,7 +74,7 @@
     <!-- E6 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting3.label5}}">
       <picker bindchange="changeYesOrNo" data-field="E6" value="{{form.E6 - 1}}" range="{{d4Range}}">
-        <view class="picker">
+        <view class="picker one-line">
           {{d4Range[form.E6 - 1]}}
           <view class="picker-down"></view>
         </view>
@@ -88,12 +88,11 @@
         </a>
       </view>
     </mp-cell>
-
     <!-- 底层喇叭播放的语言 -->
     <!-- E8 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting3.label8}}">
       <picker bindchange="changeYesOrNo" data-field="E8" value="{{form.E8 - 1}}" range="{{d5Range}}">
-        <view class="picker">
+        <view class="picker one-line">
           {{d5Range[form.E8 - 1]}}
           <view class="picker-down"></view>
         </view>
