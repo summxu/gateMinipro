@@ -3,36 +3,36 @@
   <mp-toptips ext-class="toptip-custom" msg="{{topTipMsg}}" type="info" show="{{toptipShow}}"></mp-toptips>
   <mp-toptips ext-class="toptip-custom" msg="{{topTipMsg}}" type="error" show="{{errorShow}}"></mp-toptips>
   <mp-cells class="cells-custom">
-    <!-- D9 -->
+    <!-- EA -->
     <view class="div-line">
-      <a class="weui-btn weui-btn_default weui-btn_mini btn-left" data-alert="{{language.setting4.c1}}" data-field="D9" bind:tap="optionFun">
+      <a class="weui-btn weui-btn_default weui-btn_mini btn-left" data-alert="{{language.setting4.c1}}" data-field="EA" bind:tap="optionFun">
         {{language.setting4.label1}}
       </a>
       <a data-page="setting4" data-key="topTip1" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
         <mp-icon icon="help" color="black" size="{{18}}"></mp-icon>
       </a>
     </view>
-    <!-- DA -->
+    <!-- EB -->
     <view class="div-line">
-      <a class="weui-btn btn-left weui-btn_default weui-btn_mini" data-field="DA" data-alert="{{language.setting4.c2}}" bind:tap="optionFun">
+      <a class="weui-btn btn-left weui-btn_default weui-btn_mini" data-field="EB" data-alert="{{language.setting4.c2}}" bind:tap="optionFun">
         {{language.setting4.label2}}
       </a>
       <a data-page="setting4" data-key="topTip2" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
         <mp-icon icon="help" color="black" size="{{18}}"></mp-icon>
       </a>
     </view>
-    <!-- DB -->
+    <!-- EC -->
     <view class="div-line">
-      <a class="weui-btn  btn-left weui-btn_default weui-btn_mini" data-alert="{{language.setting4.c3}}" data-field="DB" bind:tap="optionFun">
+      <a class="weui-btn  btn-left weui-btn_default weui-btn_mini" data-alert="{{language.setting4.c3}}" data-field="EC" bind:tap="optionFun">
         {{language.setting4.label3}}
       </a>
       <a data-page="setting4" data-key="topTip3" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
         <mp-icon icon="help" color="black" size="{{18}}"></mp-icon>
       </a>
     </view>
-    <!-- DC -->
+    <!-- ED -->
     <view class="div-line">
-      <a class="weui-btn btn-left weui-btn_default weui-btn_mini" data-alert="{{language.setting4.c4}}" data-field="DC" bind:tap="optionFun">
+      <a class="weui-btn btn-left weui-btn_default weui-btn_mini" data-alert="{{language.setting4.c4}}" data-field="ED" bind:tap="optionFun">
         {{language.setting4.label4}}
       </a>
       <a data-page="setting4" data-key="topTip4" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">

@@ -122,11 +122,11 @@
         </a>
       </view>
     </mp-cell>
-    <!-- FE -->
+    <!-- E1 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting2.label8}}">
-      <slider style="margin-right:0" block-size="{{16}}" value="{{form.FE}}" data-field="FE" bindchange="changeYesOrNo" min="1" max="100" show-value />
+      <slider style="margin-right:0" block-size="{{16}}" value="{{form.E1}}" data-field="E1" bindchange="changeYesOrNo" min="1" max="100" show-value />
       <view slot="footer" class="weui-vcode-btn">
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="FE" bind:tap="saveFun">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="E1" bind:tap="saveFun">
           {{language.save}}
         </a>
         <a data-page="setting2" data-key="topTip8" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
@@ -135,16 +135,16 @@
       </view>
     </mp-cell>
     <!-- 断电开闸，设置三移过来的 -->
-    <!-- D5 -->
+    <!-- E7 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting3.label6}}">
-      <picker bindchange="changeYesOrNo" data-field="D5" value="{{form.D5 - 1}}" range="{{d5Range}}">
+      <picker bindchange="changeYesOrNo" data-field="E7" value="{{form.E7 - 1}}" range="{{d5Range}}">
         <view class="picker">
-          {{d5Range[form.D5 - 1]}}
+          {{d5Range[form.E7 - 1]}}
           <view class="picker-down"></view>
         </view>
       </picker>
       <view slot="footer" class="weui-vcode-btn">
-        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="D5" bind:tap="saveFun">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="E7" bind:tap="saveFun">
           {{language.save}}
         </a>
         <a data-page="setting3" data-key="topTip6" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
