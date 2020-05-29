@@ -44,14 +44,15 @@ Page({
   // 操作
   optionFun (event) {
     const field = event.currentTarget.dataset.field
+    const value = event.currentTarget.dataset.value
     const alert = event.currentTarget.dataset.alert
+    console.log(value)
     wx.showModal({
       title: '提示',
       content: alert,
       success (res) {
         if (res.confirm) {
-          console.log('0x' + field, '0x01')
-          app.writeBLECharacteristicValue('0x' + field, '0x01', true)
+          app.writeBLECharacteristicValue('0x' + field, '0x' + value, true)
         }
       }
     })
