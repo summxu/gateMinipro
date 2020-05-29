@@ -1,5 +1,8 @@
 export default {
   'zh_cn': {
+    'is': '第',
+    'level': '级',
+    'second': '秒',
     'language': '简体中文',
     'save': '保存',
     'connect': '断开链接',
@@ -92,6 +95,9 @@ export default {
     }
   },
   'en': {
+    'is': 'is',
+    'level': 'level',
+    'second': 'S',
     'language': 'Simplified Chinese',
     'save': 'Save',
     'connect': 'Disconnect link',

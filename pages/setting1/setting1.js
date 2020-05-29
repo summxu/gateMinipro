@@ -91,7 +91,8 @@ Page({
       })
       return false
     }
-    if (field > max) {
+    if (Number(this.data.form[field]) > Number(max)) {
+      console.log(Number(this.data.form[field]), Number(max))
       this.setData({
         errorShow: true,
         topTipMsg: '写入的数据值大小超出范围!'
