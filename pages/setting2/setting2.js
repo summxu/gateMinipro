@@ -51,6 +51,19 @@ Page({
         wx.T.getLanguage().options.options5,
         wx.T.getLanguage().options.options6
       ],
+      unlawfulness: [
+        wx.T.getLanguage().options.options3,
+        wx.T.getLanguage().options.options26,
+        wx.T.getLanguage().options.options27,
+        wx.T.getLanguage().options.options28
+      ],
+      reverse: [
+        wx.T.getLanguage().options.options3,
+        wx.T.getLanguage().options.options29,
+        wx.T.getLanguage().options.options30,
+        wx.T.getLanguage().options.options27,
+        wx.T.getLanguage().options.options31
+      ],
       d5Range: [
         wx.T.getLanguage().options.options7,
         wx.T.getLanguage().options.options8,

@@ -18,8 +18,8 @@ export default {
       'tabbar4': '配置项四'
     },
     'options': {
-      'options1': '是',
-      'options2': '否',
+      'options1': '不记忆',
+      'options2': '记忆',
       'options3': '取消声音',
       'options4': '欢迎光临',
       'options5': '一路顺风',
@@ -42,7 +42,18 @@ export default {
       'options22': '中文',
       'options23': '英文',
       'options24': '阿拉伯语',
-      'options25': '取消'
+      'options25': '取消',
+      'options26': '非法闯入请刷卡',
+      'options27': '请刷卡',
+      'options28': '请授权',
+      'options29': '反向进入',
+      'options30': '请勿反向进入',
+      'options31': '非法闯入',
+      'options32': '慢',
+      'options33': '快',
+      'options34': '小',
+      'options35': '中',
+      'options36': '大'
     },
     'devices': {
       'PedestrianGate_1': '翼闸',
@@ -170,7 +181,10 @@ export default {
       'options22': 'Chinese',
       'options23': 'English',
       'options24': 'Arabic',
-      'options25': 'Cancel'
+      'options25': '取消',
+      'options26': '非法闯入请刷卡',
+      'options27': '请刷卡',
+      'options28': '请授权'
     },
     'devices': {
       'PedestrianGate_1': 'Wing Gate',

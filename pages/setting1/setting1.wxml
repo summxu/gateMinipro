@@ -45,7 +45,7 @@
     <mp-cell ext-class="cell-custom" title="{{language.setting1.label4}}">
       <picker bindchange="changeLevel" data-field="F3" value="{{form.F3 - 1}}" range="{{levels}}">
         <view class="picker one-line">
-          {{language.is}} {{levels[form.F3 - 1]}} {{language.level}}
+          {{levels[form.F3 - 1]}}
           <view class="picker-down"></view>
         </view>
       </picker>
@@ -60,9 +60,9 @@
     </mp-cell>
     <!-- F4 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting1.label5}}">
-      <picker bindchange="changeLevel" data-field="F4" value="{{form.F4 - 1}}" range="{{levels}}">
+      <picker bindchange="changeLevel" data-field="F4" value="{{form.F4 - 1}}" range="{{switch}}">
         <view class="picker one-line">
-          {{language.is}} {{levels[form.F4 - 1]}} {{language.level}}
+          {{switch[form.F4 - 1]}}
           <view class="picker-down"></view>
         </view>
       </picker>
@@ -77,9 +77,9 @@
     </mp-cell>
     <!-- F5 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting1.label6}}">
-      <picker bindchange="changeLevel" data-field="F5" value="{{form.F5 - 1}}" range="{{levels}}">
+      <picker bindchange="changeLevel" data-field="F5" value="{{form.F5 - 1}}" range="{{switch}}">
         <view class="picker one-line">
-          {{language.is}} {{levels[form.F5 - 1]}} {{language.level}}
+          {{switch[form.F5 - 1]}}
           <view class="picker-down"></view>
         </view>
       </picker>
@@ -96,7 +96,7 @@
     <mp-cell ext-class="cell-custom" title="{{language.setting1.label7}}">
       <picker bindchange="changeLevel" data-field="F6" value="{{form.F6 - 1}}" data-max="10" range="{{levels}}">
         <view class="picker one-line">
-          {{language.is}} {{levels[form.F6 - 1]}} {{language.level}}
+          {{levels[form.F6 - 1]}}
           <view class="picker-down"></view>
         </view>
       </picker>

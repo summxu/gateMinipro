@@ -16,7 +16,15 @@ Page({
     errorShow: false,
     topTipMsg: '',
     form: {},
-    levels: [1, 2, 3, 4, 5]
+    levels: [
+      wx.T.getLanguage().options.options34,
+      wx.T.getLanguage().options.options35,
+      wx.T.getLanguage().options.options36
+    ],
+    switch: [
+      wx.T.getLanguage().options.options32,
+      wx.T.getLanguage().options.options33
+    ],
   },
 
   /**

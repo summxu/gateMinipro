@@ -73,9 +73,9 @@
     </mp-cell>
     <!-- FC -->
     <mp-cell ext-class="cell-custom" title="{{language.setting2.label6}}">
-      <picker bindchange="changeYesOrNo" data-field="FC" value="{{form.FC - 1}}" range="{{sounds}}">
+      <picker bindchange="changeYesOrNo" data-field="FC" value="{{form.FC - 1}}" range="{{unlawfulness}}">
         <view class="picker one-line">
-          {{sounds[form.FC - 1]}}
+          {{unlawfulness[form.FC - 1]}}
           <view class="picker-down"></view>
         </view>
       </picker>
@@ -107,9 +107,9 @@
     </mp-cell>
     <!-- FD -->
     <mp-cell ext-class="cell-custom" title="{{language.setting2.label7}}">
-      <picker bindchange="changeYesOrNo" data-field="FD" value="{{form.FD - 1}}" range="{{sounds}}">
+      <picker bindchange="changeYesOrNo" data-field="FD" value="{{form.FD - 1}}" range="{{reverse}}">
         <view class="picker one-line">
-          {{sounds[form.FD - 1]}}
+          {{reverse[form.FD - 1]}}
           <view class="picker-down"></view>
         </view>
       </picker>
