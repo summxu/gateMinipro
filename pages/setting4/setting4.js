@@ -34,6 +34,9 @@ Page({
   },
   // showToptip
   showTopTip (event) {
+    this.setData({
+      toptipShow: false
+    })
     const page = event.currentTarget.dataset.page
     const key = event.currentTarget.dataset.key
     this.setData({

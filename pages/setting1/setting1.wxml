@@ -1,7 +1,7 @@
 <!-- pages/setting1/setting1.wxml -->
 <view class="container">
-  <mp-toptips ext-class="toptip-custom" msg="{{topTipMsg}}" type="info" show="{{toptipShow}}"></mp-toptips>
-  <mp-toptips ext-class="toptip-custom" msg="{{topTipMsg}}" type="error" show="{{errorShow}}"></mp-toptips>
+  <mp-toptips wx:if="{{toptipShow}}" delay="5000" ext-class="toptip-custom" msg="{{topTipMsg}}" type="info" show="{{toptipShow}}"></mp-toptips>
+  <mp-toptips delay="5000" ext-class="toptip-custom" msg="{{topTipMsg}}" type="error" show="{{errorShow}}"></mp-toptips>
   <mp-cells class="cells-custom">
     <mp-cell ext-class="cell-custom" title="{{language.setting1.label1}}">
       <input type="number" value="{{form.F0}}" bindinput="formInputChange" data-field="F0" class="weui-input" />
