@@ -10,10 +10,17 @@
       }
     </wxs>
   <view class="userinfo">
-    <!-- 语言选择 -->
-    <picker bindchange="bindPickerChange" bindchange="changeLanguage" value="{{langIndex}}" range="{{languages}}">
-      <view class="picker-languages">{{languages[langIndex]}}</view>
-    </picker>
+    <!-- 头部 -->
+    <view class="header">
+      <view class="left">
+        <image class="loading" src="../../utils/loading.gif"></image>
+        <p class="searching">搜索设备.....</p>
+        <!-- <a class="btn" bind:tap="saveFun">暂停</a> -->
+      </view>
+      <picker bindchange="bindPickerChange" bindchange="changeLanguage" value="{{langIndex}}" range="{{languages}}">
+        <view class="picker-languages">{{languages[langIndex]}}</view>
+      </picker>
+    </view>
   </view>
   <!-- <button bindtap="openBluetoothAdapter">开始扫描</button>
     <button bindtap="stopBluetoothDevicesDiscovery">停止扫描</button>
@@ -34,10 +41,10 @@
       <!-- <view style="font-size: 10px">Service数量: {{utils.len(item.advertisServiceUUIDs)}}</view> -->
     </view>
   </scroll-view>
-  <view class="connected_info" wx:if="{{connected}}">
+  <!-- <view class="connected_info" wx:if="{{connected}}">
     <view wx:for="{{chs}}" wx:key="index" style="font-size: 12px; margin-top: 10px;">
       <view>{{language.index4}}: {{item.uuid}}</view>
       <view>{{language.index5}}: {{item.value}}</view>
     </view>
-  </view>
+  </view> -->
 </view>

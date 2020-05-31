@@ -3,13 +3,7 @@
   width: 100%
 }
 
-.picker-languages {
-  position   : absolute;
-  top        : 20rpx;
-  right      : 30rpx;
-  color      : #07c160;
-  font-weight: 700;
-}
+
 
 .device_list {
   width: 100%;
@@ -33,4 +27,44 @@
 .container {
   padding    : 0 30rpx;
   padding-top: 80rpx;
+}
+
+/* 头部 */
+.header {
+  position        : absolute;
+  top             : 0;
+  left            : 0;
+  height          : 30px;
+  width           : 100%;
+  display         : flex;
+  flex-flow       : nowrap row;
+  background-color: rgba(33, 33, 33, .2);
+  padding         : 0 15px;
+  justify-content : space-between;
+  box-sizing      : border-box;
+  font-size       : 14px;
+  line-height     : 30px;
+}
+
+.header p {
+  display: inline-block;
+}
+
+.header .btn {
+  color: #07c160;
+}
+
+.header .loading {
+  width          : 18px;
+  height         : 18px;
+  background-size: inherit;
+  vertical-align : middle;
+}
+
+.header .searching {
+  margin: 0 10px;
+}
+
+.header .picker-languages {
+  color: #07c160;
 }

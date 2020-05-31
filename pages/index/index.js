@@ -30,11 +30,11 @@ Page({
     this.openBluetoothAdapter()
   },
   onShow: function (options) {
-    wx.showToast({
-      title: '搜索设备...',
-      icon: 'loading',
-      mask: true
-    })
+    // wx.showToast({
+    //   title: '搜索设备...',
+    //   icon: 'loading',
+    //   mask: true
+    // })
   },
   setLanguage: function () {
     this.setData({
@@ -146,6 +146,12 @@ Page({
   },
   // 创建蓝牙链接
   createBLEConnection (e) {
+    wx.showToast({
+      title: '创建蓝牙连接...',
+      icon: 'loading',
+      duration: 99999,
+      mask: true
+    })
     const ds = e.currentTarget.dataset
     const deviceId = ds.deviceId
     const name = ds.name
@@ -187,12 +193,6 @@ Page({
   },
   // 获取设备特征块  12个可读 2个可写
   getBLEDeviceCharacteristics (deviceId, serviceId) {
-    wx.showToast({
-      title: '加载中...',
-      icon: 'loading',
-      duration: 1500,
-      mask: true
-    })
     wx.getBLEDeviceCharacteristics({
       deviceId,
       serviceId,

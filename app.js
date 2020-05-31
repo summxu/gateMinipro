@@ -22,6 +22,14 @@ App({
   onLaunch: function () {
 
   },
+  onShow: function (params) {
+    console.log('app back')
+    wx.reLaunch({ url: '/pages/index/index' });
+  },
+  onHide: function () {
+    console.log('app exit')
+    wx.closeBluetoothAdapter()
+  },
   globalData: {
     // content: '01010101010101010101010101010101010101010101',
     content: '',
