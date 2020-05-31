@@ -54,6 +54,23 @@
         </a>
       </view>
     </mp-cell>
+    <!-- E0关门方式 -->
+    <mp-cell ext-class="cell-custom" title="{{language.setting3.label9}}">
+      <picker bindchange="changeYesOrNo" data-field="E0" value="{{form.E0 - 1}}" range="{{d3Range}}">
+        <view class="picker one-line">
+          {{d3Range[form.E0 - 1]}}
+          <view class="picker-down"></view>
+        </view>
+      </picker>
+      <view slot="footer" class="weui-vcode-btn">
+        <a class="weui-btn weui-btn_mini weui-btn_default" data-field="E0" bind:tap="saveFun">
+          {{language.save}}
+        </a>
+        <a data-page="setting3" data-key="topTip9" bindtap="showTopTip" class="weui-btn weui-btn_mini weui-btn_default">
+          <mp-icon icon="help" color="black" size="{{18}}"></mp-icon>
+        </a>
+      </view>
+    </mp-cell>
     <!-- E5 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting3.label4}}">
       <picker bindchange="changeYesOrNo" data-field="E5" value="{{form.E5 - 1}}" range="{{levels}}">

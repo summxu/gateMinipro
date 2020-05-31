@@ -273,6 +273,7 @@ Page({
         // 把内容存入globalData
         app.globalData.content = ab2hex(characteristic.value)
         // 跳转页面
+        console.log(app.globalData.content)
         console.log(app.getContentToJson());
         this.toSetting()
       }

@@ -57,6 +57,11 @@ Page({
         wx.T.getLanguage().options.options17
       ],
       d2Range: [
+        wx.T.getLanguage().options.options37,
+        wx.T.getLanguage().options.options38,
+        wx.T.getLanguage().options.options39
+      ],
+      d3Range: [
         wx.T.getLanguage().options.options10,
         wx.T.getLanguage().options.options18,
         wx.T.getLanguage().options.options19
