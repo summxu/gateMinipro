@@ -39,9 +39,9 @@
     </mp-cell>
     <!-- E4 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting3.label3}}">
-      <picker bindchange="changeYesOrNo" data-field="E4" value="{{form.E4 - 1}}" range="{{d2Range}}">
+      <picker bindchange="changeYesOrNo" data-field="E4" value="{{form.E4 - 1}}" range="{{d3Range}}">
         <view class="picker one-line">
-          {{d2Range[form.E4 - 1]}}
+          {{d3Range[form.E4 - 1]}}
           <view class="picker-down"></view>
         </view>
       </picker>
@@ -56,9 +56,9 @@
     </mp-cell>
     <!-- E0关门方式 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting3.label9}}">
-      <picker bindchange="changeYesOrNo" data-field="E0" value="{{form.E0 - 1}}" range="{{d3Range}}">
+      <picker bindchange="changeYesOrNo" data-field="E0" value="{{form.E0 - 1}}" range="{{d2Range}}">
         <view class="picker one-line">
-          {{d3Range[form.E0 - 1]}}
+          {{d2Range[form.E0 - 1]}}
           <view class="picker-down"></view>
         </view>
       </picker>

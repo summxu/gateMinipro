@@ -3,6 +3,7 @@
   <mp-toptips wx:if="{{toptipShow}}" delay="5000" ext-class="toptip-custom" msg="{{topTipMsg}}" type="info" show="{{toptipShow}}"></mp-toptips>
   <mp-toptips delay="5000" ext-class="toptip-custom" msg="{{topTipMsg}}" type="error" show="{{errorShow}}"></mp-toptips>
   <mp-cells class="cells-custom">
+    <!-- F0 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting1.label1}}">
       <input type="number" value="{{form.F0}}" bindinput="formInputChange" data-field="F0" class="weui-input" />
       <view slot="footer" class="weui-vcode-btn">
@@ -43,9 +44,9 @@
     </mp-cell>
     <!-- F3 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting1.label4}}">
-      <picker bindchange="changeLevel" data-field="F3" value="{{form.F3 - 1}}" range="{{levels}}">
+      <picker bindchange="changeLevel" data-field="F3" value="{{form.F3 - 1}}" range="{{switch}}">
         <view class="picker one-line">
-          {{levels[form.F3 - 1]}}
+          {{switch[form.F3 - 1]}}
           <view class="picker-down"></view>
         </view>
       </picker>
@@ -77,9 +78,9 @@
     </mp-cell>
     <!-- F5 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting1.label6}}">
-      <picker bindchange="changeLevel" data-field="F5" value="{{form.F5 - 1}}" range="{{switch}}">
+      <picker bindchange="changeLevel" data-field="F5" value="{{form.F5 - 1}}" range="{{levels}}">
         <view class="picker one-line">
-          {{switch[form.F5 - 1]}}
+          {{levels[form.F5 - 1]}}
           <view class="picker-down"></view>
         </view>
       </picker>

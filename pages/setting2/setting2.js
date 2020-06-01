@@ -42,6 +42,10 @@ Page({
     // 设置选项语言
     this.setData({
       yesOrNo: [
+        wx.T.getLanguage().options.options40,
+        wx.T.getLanguage().options.options41
+      ],
+      memory: [
         wx.T.getLanguage().options.options1,
         wx.T.getLanguage().options.options2
       ],
@@ -50,6 +54,12 @@ Page({
         wx.T.getLanguage().options.options4,
         wx.T.getLanguage().options.options5,
         wx.T.getLanguage().options.options6
+      ],
+      follow: [
+        wx.T.getLanguage().options.options3,
+        wx.T.getLanguage().options.options43,
+        wx.T.getLanguage().options.options27,
+        wx.T.getLanguage().options.options44
       ],
       unlawfulness: [
         wx.T.getLanguage().options.options3,

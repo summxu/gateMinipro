@@ -5,9 +5,9 @@
   <mp-cells class="cells-custom">
     <!-- F8 -->
     <mp-cell ext-class="cell-custom" title="{{language.setting2.label2}}">
-      <picker bindchange="changeYesOrNo" data-field="F8" value="{{form.F8 - 1}}" range="{{yesOrNo}}">
+      <picker bindchange="changeYesOrNo" data-field="F8" value="{{form.F8 - 1}}" range="{{memory}}">
         <view class="picker one-line">
-          {{yesOrNo[form.F8 - 1]}}
+          {{memory[form.F8 - 1]}}
           <view class="picker-down"></view>
         </view>
       </picker>
@@ -90,9 +90,9 @@
     </mp-cell>
     <!-- FB -->
     <mp-cell ext-class="cell-custom" title="{{language.setting2.label5}}">
-      <picker bindchange="changeYesOrNo" data-field="FB" value="{{form.FB - 1}}" range="{{sounds}}">
+      <picker bindchange="changeYesOrNo" data-field="FB" value="{{form.FB - 1}}" range="{{follow}}">
         <view class="picker one-line">
-          {{sounds[form.FB - 1]}}
+          {{follow[form.FB - 1]}}
           <view class="picker-down"></view>
         </view>
       </picker>
