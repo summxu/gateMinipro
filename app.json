@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/setting1/setting1",
     "pages/setting3/setting3",
     "pages/setting4/setting4",
-    "pages/setting1/setting1",
     "pages/setting2/setting2"
   ],
   "window": {
