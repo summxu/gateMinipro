@@ -103,18 +103,24 @@ Page({
       })
       return false
     }
-    if (Number(this.data.form[field]) > Number(max)) {
+    if (Number(this.data.form[field]) > Number(max) || Number(this.data.form[field]) < 1) {
       console.log(Number(this.data.form[field]), Number(max))
       this.setData({
         errorShow: true,
-        topTipMsg: '写入的数据值大小超出范围!'
+        topTipMsg: `写入的数据值大小超出范围! 最小值：1 最大值：${max}`
       })
       return false
     }
+
     // 判断没有 0 添 0 操作
     var sting16 = Number(this.data.form[field]).toString(16)
+    // 特殊操作，存值 + 1
+    if (field == 'F1' || field == 'F2') {
+      sting16 = (Number(this.data.form[field]) + 1).toString(16)
+    }
     var tempStr = String(sting16).length === 1 ? '0' + String(sting16) : String(sting16)
     console.log('0x' + field, '0x' + tempStr)
+
     app.writeBLECharacteristicValue('0x' + field, '0x' + tempStr)
   },
   // 退出断开连接
