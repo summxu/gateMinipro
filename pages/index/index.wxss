@@ -68,3 +68,17 @@
 .header .picker-languages {
   color: #07c160;
 }
+
+/* 提示信息 */
+.notice {
+  color     : #bbb;
+  font-size : 12px;
+  padding   : 0 30px;
+  position  : fixed;
+  z-index   : 6658;
+  left      : 0;
+  bottom    : 20px;
+  width     : 100%;
+  text-align: center;
+  box-sizing: border-box;
+}

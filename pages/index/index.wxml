@@ -47,4 +47,5 @@
       <view>{{language.index5}}: {{item.value}}</view>
     </view>
   </view> -->
+  <p class="notice">因部分手机的 蓝牙与WIFI集成在同一个芯片上，当开启WIFI后，导致 蓝牙 搜索变慢，使用小程序前请只打开蓝牙并关闭掉WIFI,改用移动网络连接互联网</p>
 </view>
