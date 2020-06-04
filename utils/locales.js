@@ -106,8 +106,7 @@ export default {
       'topTip5': '尾随进入时语音选择：0、取消声音；1、尾随进入；2、请刷卡，不满足可 定制声音',
       'topTip6': '非法闯入时语音选择：0、取消声音1、非法闯入请刷卡；2请刷卡；3、未授权',
       'topTip7': '反向进入时语音选择：0、取消声音1、反向进入；2请刷卡；3、未授权',
-      'topTip8': '音量调节',
-      'topTip9': '默认模式：表示通过通行方向的最后一对。通过防夹红外关门：表示通过防夹红外后门立即关闭，选择此方式后红外防夹不起作用。触发最后一对红外关门：表示触发最后一对红外时立即关门'
+      'topTip8': '音量调节'
     },
     'setting3': {
       'label1': '反向闯入处理:',
@@ -133,6 +132,7 @@ export default {
       'topTip5': '红外开门：0、取消；1遇到左红外开门；2、右红外开门，3遇到左右红外都开门',
       'topTip6': '断电开闸设置0、断电不开闸，（1）、左开闸，（2）、右开闸。左开右开只是对摆闸有效',
       'topTip8': '底层喇叭播放的语言',
+      'topTip9': '默认模式：表示通过通行方向的最后一对。通过防夹红外关门：表示通过防夹红外后门立即关闭，选择此方式后红外防夹不起作用。触发最后一对红外关门：表示触发最后一对红外时立即关门'
     },
     'setting4': {
       'label1': '初始化系统参数',
@@ -225,60 +225,64 @@ export default {
       'PedestrianGate_8': 'Cylinder swing gate'
     },
     'setting1': {
-      'label1': 'Duration of opening and exit',
-      'label2': 'Delayed opening time',
-      'label3': 'Delayed closing time',
-      'label4': 'Door speed level',
-      'label5': 'door closing speed level',
-      'label6': 'Door opening torque level',
-      'label7': 'Close door torque level',
-      'topTip1': 'After setting the gate, no one will pass, and the gate will automatically close the gate. The default is 5 seconds. The data range is 3 ~ 250 ',
+      'label1': 'Duration of opening and exit:',
+      'label2': 'Delayed opening time:',
+      'label3': 'Delayed closing time:',
+      'label4': 'Door speed level:',
+      'label5': 'Door closing speed level:',
+      'label6': 'Door opening torque level:',
+      'label7': 'Close door torque level:',
+      'topTip1': 'After setting the gate, no one will pass, and the gate will automatically close the gate. The default is 5 seconds. The data range is 3~250',
       'topTip2': 'The delay time of gate opening after receiving the gate opening signal, the default is 0 seconds',
       'topTip3': 'Set the delay time for pedestrians to pass through the last pair of infrared rays in the channel, the default is 0 seconds',
-      'topTip4': 'Adjust the door opening speed, there are 5 speed levels (1 ~ 5), the larger the value, the faster the speed',
-      'topTip5': 'Adjust the door closing speed, there are 5 speed levels (1 ~ 5), the larger the value, the faster the speed',
-      'topTip6': 'Adjust the torque of the motor when opening the door, there are 5 levels (1 ~ 5), the greater the value, the greater the output torque of the motor',
-      'topTip7': 'Adjust the torque of the motor when closing the door, there are 5 levels (1 ~ 5), the greater the value, the greater the output torque of the motor'
+      'topTip4': 'Adjust the door opening speed, there are 5 speed levels (1~5), the larger the value, the faster the speed',
+      'topTip5': 'Adjust the door closing speed, there are 5 speed levels (1~5), the larger the value, the faster the speed',
+      'topTip6': 'Adjust the torque of the motor when opening the door, there are 5 levels (1~5)',
+      'topTip7': 'Adjust the torque of the motor when closing the door, there are 5 levels (1~5)'
     },
     'setting2': {
-      'label1': 'Whether to detect normally open door',
-      'label2': 'Whether the card is remembered',
-      'label3': 'Left to pass voice',
-      'label4': 'Right-track voice',
-      'label5': 'Tracking into voice',
-      'label6': 'illegal intrusion into voice',
-      'label7': 'Reverse entry prompt tone',
-      'label8': 'Volume adjustment',
-      'topTip1': 'Whether the door opening signal is allowed to continue for more than 5 seconds and the door enters the normally open mode. By default, the door is not allowed to pass the normally open door. "No", do not detect this item, "Yes", detect this item for more than 5 seconds and consider it Normally open',
+      'label1': 'Whether to detect normally open signal:',
+      'label2': 'Whether the card is remembered:',
+      'label3': 'Left to pass voice:',
+      'label4': 'Right-speaking voice:',
+      'label5': 'Walking into voice:',
+      'label6': 'Illegal Intrusion Voice:',
+      'label7': 'Reverse voice entry:',
+      'label8': 'Volume adjustment:',
+      'topTip1': 'Whether the door opening signal is allowed to continue for more than 5 seconds and the door enters the normally open mode. By default, the door is not allowed to pass the normally open door. "No", do not detect this item, "Yes", detect this item for more than 5 seconds and consider it as yes Normally open',
       'topTip2': 'Set whether the controller memorizes the number of card swipes when swiping for multiple times. The default is not to remember the number of card swipes',
       'topTip3': 'Left-direction voice selection: 0, cancel the sound; 1, welcome to visit; 2, all the way downwind; 3. please enter',
       'topTip4': 'Set the right pass voice, optional content: 0, cancel the sound; 1, welcome to visit; 2, all the way downwind; 3. Please enter',
       'topTip5': 'Voice selection when trailing in: 0, cancel the sound; 1. trailing in; 2. swipe, please do not meet the customizable sound',
       'topTip6': 'Voice selection during illegal intrusion: 0, cancel sound 1, please swipe your card for illegal intrusion; 2 please swipe your card; 3. unauthorized',
       'topTip7': 'Voice selection during reverse entry: 0, cancel sound 1, reverse entry; 2 please swipe; 3, unauthorized',
-      'topTip8': 'Volume adjustment'
+      'topTip8': 'Volume adjustment',
     },
     'setting3': {
-      'label1': 'Reverse intrusion processing',
-      'label2': 'Tailed into processing',
-      'label3': 'Anti-pinch processing method',
-      'label4': 'Infrared logarithm',
-      'label5': 'Infrared door opening setting',
-      'label6': 'Power off and opening settings',
+      'label1': 'Reverse intrusion processing:',
+      'label2': 'Tailed into processing:',
+      'label3': 'Anti-pinch processing method:',
+      'label4': 'Infrared logarithm:',
+      'label5': 'Infrared door opening setting:',
+      'label6': 'Power-off and opening settings:',
+      'label8': 'Voice language',
+      'label9': 'How to close the door:',
       'topTip1':
         `
           Reverse intrusion setting, 0, do not handle reverse entry,
           1. Reverse entry is only a voice alarm,
           2. Enter the voice alarm in reverse and try to close the door (someone in the anti-pinch infrared channel in the channel will not close the door, and no person in the anti-pinch infrared room will close the door). Once the door is closed, the card swipe signal will be invalid and the card will need to be reopened
-          3. Enter the voice alarm in the reverse direction and try to close the door (someone in the anti-pinch infrared channel in the channel will not close the door, and no person in the anti-pinch infrared room will close the door). If the reverse signal is cancelled after the door is closed, the door will be opened again
+          3. Enter the voice alarm in the reverse direction and try to close the door (someone in the anti-pinch infrared channel in the channel will not close the door, and no person in the anti-pinch infrared room will close the door).
           4. Enter the voice alarm in the reverse direction and force to close the door immediately (regardless of whether it is anti-pinch infrared or not). After the door is closed, the card swipe signal is invalid. You need to swipe the card again to open the door.
           Enter the voice alarm in the reverse direction and force to close the door immediately (whether it is anti-pinch infrared or not), if the reverse signal is cancelled after the door is closed, the number of doors opened again
         `,
       'topTip2': 'Tail-in entry: 0, do not process the trailing, 1, the trailing only voice alarm, 2, trailing as soon as the anti-pinch signal no one will close the door immediately, 3, trailing immediately close the door, regardless of the anti-pinch signal. ',
-      'topTip3': 'Three processing methods on the right when encountering the anti-pinch signal: 1. Do not process anti-pinch, 2. Swing arm or wing door bounce back when anti-pinch, 3. Swing arm or wing door when anti-pinch signal Pause action ',
-      'topTip4': 'Select the number of infrared rays in the channel, 8 pairs or less, please connect to the same controller, 16 pairs, please connect 8 controllers to 2 controllers. Can receive up to 16 pairs of infrared radiation ',
+      'topTip3': 'Three processing methods on the right when encountering the anti-pinch signal: 1. Do not process anti-pinch, 2. Swing arm or wing door bounce back when anti-pinch, 3. Swing arm or wing door when anti-pinch signal Pause action',
+      'topTip4': 'Select the number of infrared rays in the channel, 8 pairs or less, please connect to the same controller, 16 pairs, please connect 8 controllers to 2 controllers. Can receive up to 16 pairs of infrared radiation',
       'topTip5': 'Infrared door opening: 0, cancel; 1 meets left infrared door opening; 2, right infrared door opens, 3 both left and right infrared doors open',
-      'topTip6': 'Set to 0 when the power is turned off and 0 is not turned on when the power is turned off. Opening from left to right is only effective for swing gates'
+      'topTip6': 'Set to 0 when the power is turned off, and not open when the power is turned off, (1), left to open, (2), right to open. Opening from left to right is only effective for swing gates',
+      'topTip8': 'Language played by the bottom speaker',
+      'topTip9': 'Default mode: means passing the last pair of traffic directions. Close the door by anti-pinch infrared: it means that the back door will be closed immediately by anti-pinch infrared. After selecting this mode, the infrared anti-pinch will not work. Trigger the last pair of infrared doors to close: means close the door immediately when the last pair of infrared lights is triggered'
     },
     'setting4': {
       'label1': 'Initialize system parameters',
