@@ -103,11 +103,11 @@ Page({
       })
       return false
     }
-    if (Number(this.data.form[field]) > Number(max) || Number(this.data.form[field]) < 1) {
+    if (Number(this.data.form[field]) >= Number(max) || Number(this.data.form[field]) < 0) {
       console.log(Number(this.data.form[field]), Number(max))
       this.setData({
         errorShow: true,
-        topTipMsg: `写入的数据值大小超出范围! 最小值：1 最大值：${max}`
+        topTipMsg: `写入的数据值大小超出范围! 最小值：0 最大值：${max}`
       })
       return false
     }
