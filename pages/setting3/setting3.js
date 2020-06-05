@@ -48,7 +48,8 @@ Page({
         wx.T.getLanguage().options.options11,
         wx.T.getLanguage().options.options12,
         wx.T.getLanguage().options.options13,
-        wx.T.getLanguage().options.options14
+        wx.T.getLanguage().options.options14,
+        wx.T.getLanguage().options.options45
       ],
       d1Range: [
         wx.T.getLanguage().options.options10,
